@@ -123,6 +123,69 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &132560023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132560024}
+  - component: {fileID: 132560025}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132560024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132560023}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 578394605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132560025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132560023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!1 &227692686
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcf4bb7a37c7ab438985b80a141bbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TilePrefab>k__BackingField: {fileID: 225545593569349453, guid: 0a7592a5116364e468df3580b81fd611, type: 3}
+  <TilePrefab>k__BackingField: {fileID: 4967160328791027251, guid: 0a7592a5116364e468df3580b81fd611, type: 3}
   <Frequency>k__BackingField: 1
 --- !u!1 &373182135
 GameObject:
@@ -248,6 +311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1687715459}
+  - {fileID: 132560024}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
@@ -480,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcf4bb7a37c7ab438985b80a141bbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TilePrefab>k__BackingField: {fileID: 2610776406857644523, guid: 7885880e1b116594e975f4fe01e7be3e, type: 3}
+  <TilePrefab>k__BackingField: {fileID: 6265872616895913274, guid: 7885880e1b116594e975f4fe01e7be3e, type: 3}
   <Frequency>k__BackingField: 2
 --- !u!1 &1687715458
 GameObject:
@@ -527,6 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f80daf691c6625448ab88ee318b4c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _surface: {fileID: 132560025}
+  _level_directory: {fileID: 132560024}
   _tiles_set: {fileID: 373182137}
   _level_size: {x: 5, y: 5}
   _tile_size: {x: 5, y: 0, z: 5}
