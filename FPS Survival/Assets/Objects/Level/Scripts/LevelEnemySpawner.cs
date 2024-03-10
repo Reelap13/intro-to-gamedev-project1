@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class LevelEnemySpawner : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
     [SerializeField] private GameObject _enemy_pref;
     [SerializeField] private Transform _spawn_point;
     [SerializeField] private Transform _enemy_directory;
+
+    private Transform _player;
 
     public void StartSpawningEnemy()
     {
@@ -22,5 +23,10 @@ public class LevelEnemySpawner : MonoBehaviour
 
         Enemy enemy = enemy_obj.GetComponent<Enemy>();
         enemy.SetTarget(_player);
+    }
+
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
     }
 }
