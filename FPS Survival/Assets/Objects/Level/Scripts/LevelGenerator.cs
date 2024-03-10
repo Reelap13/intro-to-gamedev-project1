@@ -12,10 +12,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Vector3 _tile_size = Vector3.one;
 
     private Dictionary<Pair<int, int>, GameObject> _level;
-    private void Awake()
-    {
-        GenerateLevel();
-    }
+
     public void GenerateLevel()
     {
         _level = new Dictionary<Pair<int, int>, GameObject>();
@@ -36,6 +33,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject tile = Instantiate(tile_pref) as GameObject;
         tile.transform.parent = _level_directory;
         tile.transform.position = new Vector3(_tile_size.x * i, 0, _tile_size.z * j);
+        tile.name = $"Tile {i} {j}";
 
         return tile;
     }
