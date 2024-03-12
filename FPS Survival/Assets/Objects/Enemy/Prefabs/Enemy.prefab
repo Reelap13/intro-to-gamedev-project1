@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
+  _speed: 3.5
+  _angular_speed: 120
+  _accelertion: 8
   IsAccessMovement: 1
 --- !u!1 &4873260174570442858
 GameObject:
