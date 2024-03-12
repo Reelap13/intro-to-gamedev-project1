@@ -16,6 +16,11 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
         _health = _start_health;
     }
 
+    public void Visit(EnemyMakingDamage visitor)
+    {
+        return;
+    }
+
     private void TakeDamage(float damage)
     {
         _health -= Mathf.Clamp(damage, 0, _health);
