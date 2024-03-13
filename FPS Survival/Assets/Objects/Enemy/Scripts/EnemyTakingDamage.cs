@@ -20,6 +20,10 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
     {
         return;
     }
+    public void Visit(CollisionScanProjectile visitor)
+    {
+        TakeDamage(visitor.Damage);
+    }
 
     private void TakeDamage(float damage)
     {
@@ -33,7 +37,7 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
             _health = 0;
             Die();
         }
-
+        Debug.Log(_health);
     }
 
     private void Die()

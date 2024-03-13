@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Reload))]
 public class Weapon : MonoBehaviour
 {
-    public InputManager inputManager;
+    private InputManager inputManager;
     private Attack attack;
     private Magazine magazine;
     private Reload reload;
@@ -18,8 +18,6 @@ public class Weapon : MonoBehaviour
         attack = GetComponent<Attack>();
         reload = GetComponent<Reload>();
         magazine = GetComponent<Magazine>();
-        inputManager.inputMaster.Attack.Fire.started += _ => PerformAttack();
-        inputManager.inputMaster.Attack.Reload.started += _ => Reload();
         magazine.OnMagazineChanged += ReloadNotify;
     }
 
@@ -44,5 +42,16 @@ public class Weapon : MonoBehaviour
             Debug.Log("Please, reload");
         }
     }
+    public void SetPreset(InputManager input)
+    {
+        if (inputManager != null)
+        {
+            inputManager.inputMaster.Attack.Fire.started -= _ => PerformAttack();
+            inputManager.inputMaster.Attack.Reload.started -= _ => Reload();
+        }
 
+        inputManager = input;
+        inputManager.inputMaster.Attack.Fire.started += _ => PerformAttack();
+        inputManager.inputMaster.Attack.Reload.started += _ => Reload();
+    }
 }

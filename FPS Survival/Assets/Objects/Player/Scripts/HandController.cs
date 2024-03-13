@@ -1,16 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HandController : MonoBehaviour
 {
-    [SerializeField] private Weapon weapon;
+    [SerializeField] private Weapon defaultWeaponPref;
     private List<Weapon> weapons = new();
     [SerializeField, Min(0)] private int maxCapacity;
     [SerializeField] private float pickupDistance;
     [SerializeField] private float throwForce;
     [SerializeField] private ForceMode throwForceMode;
 
+    private Weapon weapon;
+    private void Awake()
+    {
+        CreateDefaultWeapon();
+    }
 
     public void Operate()
     {
@@ -53,6 +57,8 @@ public class HandController : MonoBehaviour
 
     public void AddWeapon(Weapon _weapon)
     {
+        _weapon.SetPreset(GetComponent<InputManager>());
+
         _weapon.enabled = true;
         _weapon.transform.SetParent(Camera.main.transform);
         _weapon.transform.localPosition = _weapon.offset;
@@ -104,8 +110,11 @@ public class HandController : MonoBehaviour
         {
             weapons.Add(activeWeapon);
         }
-
-
     }
 
+    private void CreateDefaultWeapon()
+    {
+        GameObject defaultWeapon = Instantiate(defaultWeaponPref.gameObject) as GameObject;
+        AddWeapon(defaultWeapon.GetComponent<Weapon>());
+    }
 }
