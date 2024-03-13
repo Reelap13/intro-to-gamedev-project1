@@ -38,7 +38,7 @@ public class HealthSystem : MonoBehaviour, IWeaponVisitor
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        Debug.Log(Health);
+        Debug.Log(Health + " " + damage);
     }
 
     public void Visit(EnemyMakingDamage visitor)

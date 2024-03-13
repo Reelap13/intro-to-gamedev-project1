@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class EnemyMakingDamage : MonoBehaviour
 {
+    [field: SerializeField]
+    public Enemy Enemy { get; private set; }
     [SerializeField] private float _damage = 2f;
     [SerializeField] private float _cooldown = 1f;
+    [SerializeField] private BoxCollider _attacked_area;
+
 
     private bool _is_ready_to_attack;
+    private void Awake()
+    {
+        _is_ready_to_attack = true;
+    }
 
     public bool TryToAttack()
     {
@@ -21,7 +29,7 @@ public class EnemyMakingDamage : MonoBehaviour
     private IEnumerator StartAttack()
     {
         _is_ready_to_attack = false;
-        Attack();
+        Enemy.Animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(_cooldown);
 
@@ -30,16 +38,16 @@ public class EnemyMakingDamage : MonoBehaviour
 
     private void Attack()
     {
-        GameObject[] targets = { };
-
-        // ...
+        Debug.Log("Attack");
+        Collider[] targets = Physics.OverlapBox(_attacked_area.transform.position + _attacked_area.center, _attacked_area.size / 2);
 
         foreach (var target in targets)
-            MakeDamage(target);
+            MakeDamage(target.gameObject);
     }
 
     private void MakeDamage(GameObject target)
     {
+        Debug.Log(target.tag);
         if (target.TryGetComponent<IWeaponVisitor>(out IWeaponVisitor visitor))
             visitor.Visit(this);
     }

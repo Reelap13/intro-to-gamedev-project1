@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
 {
+    [field: SerializeField]
+    public Enemy Enemy { get; private set; }
     [NonSerialized] public UnityEvent OnDieing = new UnityEvent();
     [NonSerialized] public UnityEvent<float> OnTakingDamage = new UnityEvent<float>();
     [NonSerialized] public UnityEvent<float> OnChangingHealth = new UnityEvent<float>();
@@ -37,12 +39,19 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
             _health = 0;
             Die();
         }
-        Debug.Log(_health);
     }
 
     private void Die()
     {
         OnDieing.Invoke();
-        Destroy(gameObject);
+
+        Enemy.Animator.SetTrigger("Death");
+        Enemy.Movement.Block();
+        Enemy.Collider.enabled = false;
+        Enemy.Agent.enabled = false;
+
+        //Destroy(gameObject);
     }
+
+    public bool IsAlive { get { return _health > 0; } }
 }
