@@ -38,7 +38,7 @@ public class Magazine : MonoBehaviour
     public void ReduceAmmo(int ammo)
     {
         CurrentAmmo -= ammo;
-        Debug.Log(CurrentAmmo);
+        //Debug.Log(CurrentAmmo);
     }
 
     public bool IsEmpty()

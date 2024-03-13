@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour, IWeaponVisitor
 {
-
-    public Action<int> OnHealthChanged;
+   [NonSerialized] public UnityEvent<int> OnHealthChanged = new UnityEvent<int>();
 
     public int MaxHealth
     {
@@ -23,7 +23,7 @@ public class HealthSystem : MonoBehaviour
         set
         {
             health = Mathf.Clamp(value, 0, maxHealth);
-            OnHealthChanged?.Invoke(health);
+            OnHealthChanged.Invoke(health);
         }
     }
 
@@ -39,5 +39,15 @@ public class HealthSystem : MonoBehaviour
     {
         Health -= damage;
         Debug.Log(Health);
+    }
+
+    public void Visit(EnemyMakingDamage visitor)
+    {
+        TakeDamage(Convert.ToInt32(visitor.Damage));
+    }
+
+    public void Visit(CollisionScanProjectile visitor)
+    {
+        return;
     }
 }
