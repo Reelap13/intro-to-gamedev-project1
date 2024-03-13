@@ -6,7 +6,6 @@ public class CollisionScanProjectile : Projectile
 {
     public override void OnTargetCollision(Collision collision)
     {
-        Debug.Log("Hi");
         //collision.gameObject.GetComponent<HealthSystem>().TakeDamage(Damage);
         if (collision.gameObject.TryGetComponent(out IWeaponVisitor visitor))
             visitor.Visit(this);
