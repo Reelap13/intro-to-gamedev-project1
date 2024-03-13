@@ -43,4 +43,6 @@ public class EnemyMakingDamage : MonoBehaviour
         if (target.TryGetComponent<IWeaponVisitor>(out IWeaponVisitor visitor))
             visitor.Visit(this);
     }
+
+    public float Damage { get { return _damage; } }
 }
