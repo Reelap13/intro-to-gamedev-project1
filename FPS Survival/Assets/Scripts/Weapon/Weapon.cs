@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     private Attack attack;
     private Magazine magazine;
     private Reload reload;
+    public Vector3 offset;
 
     private void Start()
     {
@@ -25,12 +26,14 @@ public class Weapon : MonoBehaviour
     public void PerformAttack()
     {
         if (magazine.IsEmpty()) return;
+        if (!enabled || !gameObject.activeSelf) return;
         attack.PerformAttack();
         magazine.ReduceAmmo(1);
     }
 
     public void Reload()
     {
+        if (!enabled || !gameObject.activeSelf) return;
         reload.PerformReload(magazine);
     }
 
