@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class LevelPlayerSpawner : MonoBehaviour
 {
+    [field: SerializeField]
+    public LevelController LevelController { get; private set; }
     [SerializeField] private GameObject _player_pref;
-    [SerializeField] private Transform _spawn_point;
+    [SerializeField] private Vector3 _spawning_offset = Vector3.up * 5;
     [SerializeField] private Transform _player_directory;
     [SerializeField] private Vector3 _player_camera_position = Vector3.up * 0.6f;
 
@@ -19,7 +21,7 @@ public class LevelPlayerSpawner : MonoBehaviour
 
     public GameObject CreatePlayer()
     {
-        _player = SpawnPlayer(_spawn_point.position);
+        _player = SpawnPlayer(LevelController.LevelGenerator.Center + _spawning_offset);
 
         return _player.gameObject;
     }
@@ -29,6 +31,7 @@ public class LevelPlayerSpawner : MonoBehaviour
     }
     private Player SpawnPlayer(Vector3 spawn_point)
     {
+        Debug.Log(spawn_point);
         GameObject player_obj = Instantiate(_player_pref) as GameObject;
         player_obj.transform.parent = _player_directory;
         player_obj.transform.position = spawn_point;

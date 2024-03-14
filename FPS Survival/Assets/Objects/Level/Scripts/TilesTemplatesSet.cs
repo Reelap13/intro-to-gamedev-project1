@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TilesTemplatesSet : MonoBehaviour
 {
+    [SerializeField] private GameObject _start_tile_pref;
     [SerializeField] private TemplateTile[] _tiles;
 
     private float _frequencies_sum;
@@ -34,4 +35,6 @@ public class TilesTemplatesSet : MonoBehaviour
         }
         return _tiles[0];
     }
+
+    public GameObject DefaultTile { get { return _start_tile_pref; } }
 }
