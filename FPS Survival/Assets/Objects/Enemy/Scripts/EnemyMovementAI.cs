@@ -28,7 +28,7 @@ public class EnemyMovementAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(IsAccessToMove() + " " + IsCanMove());
+        //Debug.Log(IsAccessToMove() + " " + IsCanMove());
         if (!IsAccessToMove() || !IsCanMove())
             return;
 

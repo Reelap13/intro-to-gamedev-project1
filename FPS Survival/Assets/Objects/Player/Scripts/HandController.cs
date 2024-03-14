@@ -10,7 +10,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private float throwForce;
     [SerializeField] private ForceMode throwForceMode;
 
-    private Weapon weapon;
+    public Weapon weapon;
     private void Awake()
     {
         CreateDefaultWeapon();

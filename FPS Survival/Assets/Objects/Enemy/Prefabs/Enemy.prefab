@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
   _start_health: 10
+  _time_before_destroing: 1
 --- !u!136 &2408143070769606287
 CapsuleCollider:
   m_ObjectHideFlags: 0
