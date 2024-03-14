@@ -403,16 +403,20 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _distance_from_player_to_spawn
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: <LevelController>k__BackingField
       value: 
       objectReference: {fileID: 578394606}
     - target: {fileID: 8379503237674183030, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _level_size.x
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8379503237674183030, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _level_size.y
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
