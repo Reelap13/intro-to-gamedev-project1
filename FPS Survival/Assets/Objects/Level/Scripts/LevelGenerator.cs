@@ -48,4 +48,5 @@ public class LevelGenerator : MonoBehaviour
         return tile;
     }
     public Vector3 Center { get { return new Vector3(_center.x * _tile_size.x, 0, _center.z * _tile_size.z); } }
+    public Dictionary<Pair<int, int>, GameObject> Level { get { return _level; } }  
 }

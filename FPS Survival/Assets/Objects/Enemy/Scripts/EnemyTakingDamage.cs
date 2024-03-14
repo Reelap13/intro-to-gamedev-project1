@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
     [NonSerialized] public UnityEvent<float> OnTakingDamage = new UnityEvent<float>();
     [NonSerialized] public UnityEvent<float> OnChangingHealth = new UnityEvent<float>();
     [SerializeField] private float _start_health = 10f;
+    [SerializeField] private float _time_before_destroing = 3f;
 
     private float _health;
 
@@ -50,7 +52,12 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
         Enemy.Collider.enabled = false;
         Enemy.Agent.enabled = false;
 
-        //Destroy(gameObject);
+        StartCoroutine(DestroyAnfterDieing());
+    }
+    private IEnumerator DestroyAnfterDieing()
+    {
+        yield return new WaitForSeconds(_time_before_destroing);
+        Destroy(Enemy.gameObject);
     }
 
     public bool IsAlive { get { return _health > 0; } }
