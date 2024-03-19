@@ -117,4 +117,6 @@ public class HandController : MonoBehaviour
         GameObject defaultWeapon = Instantiate(defaultWeaponPref.gameObject) as GameObject;
         AddWeapon(defaultWeapon.GetComponent<Weapon>());
     }
+
+    
 }

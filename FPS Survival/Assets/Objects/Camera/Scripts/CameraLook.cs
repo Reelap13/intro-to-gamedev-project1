@@ -48,6 +48,7 @@ public class CameraLook : MonoBehaviour
         _body = player.transform;
         _inputManager = player.GetComponent<InputManager>();
         player.OnPlayerDieing.AddListener(ResetBody);
+        
     }
 
     public void ResetBody()
