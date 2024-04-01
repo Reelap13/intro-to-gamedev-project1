@@ -693,7 +693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LevelController>k__BackingField: {fileID: 2567448666825789317}
-  _player_pref: {fileID: 3783069845773744425, guid: 1044f2164e1562443824dd9dfa67a163, type: 3}
+  _player_pref: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  _spawning_offset: {x: 0, y: 5, z: 0}
   _player_directory: {fileID: 1137705265943212855}
   _player_camera_position: {x: 0, y: 0.6, z: 0}
 --- !u!1 &7303074093259676850
@@ -818,9 +819,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be29ac656384f6649861b948714c9927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <LevelController>k__BackingField: {fileID: 0}
   _enemy_pref: {fileID: 1503366581829201153, guid: 9ea6693da4026b8489e3db799c58c7e0, type: 3}
-  _spawn_point: {fileID: 3158495392808133714}
   _enemy_directory: {fileID: 5315126917460131210}
+  _const_spawn_number: 5
+  _dynamic_spawn_number: 1
+  _distance_from_player_to_spawn: 10
 --- !u!1 &8270283975347030698
 GameObject:
   m_ObjectHideFlags: 0

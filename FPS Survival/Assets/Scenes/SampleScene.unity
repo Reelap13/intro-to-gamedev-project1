@@ -346,6 +346,18 @@ PrefabInstance:
       propertyPath: _spawning_offset.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 706947241368481917, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _player_camera_position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 706947241368481917, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _player_camera_position.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 706947241368481917, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _player_camera_position.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1108442100409262570, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
