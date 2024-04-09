@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -15,9 +16,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool _isGrounded;
 
+    private Animator animator;
+
     private void Start()
     {
         inputManager.inputMaster.Movement.Jump.started += _ => Jump();
+        animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -55,6 +59,12 @@ public class PlayerMovement : MonoBehaviour
         move.Normalize();
 
         move *= inputManager.inputMaster.Movement.Run.ReadValue<float>() == 0 ? speed : runSpeed;
+
+        float velocityX = Vector3.Dot(move.normalized, transform.right);
+        float velocityZ = Vector3.Dot(move.normalized, transform.forward);
+
+        animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
+        animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
 
         rb.velocity = new(move.x, rb.velocity.y, move.z);
     }

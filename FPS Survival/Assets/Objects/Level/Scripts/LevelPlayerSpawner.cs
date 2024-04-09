@@ -43,7 +43,7 @@ public class LevelPlayerSpawner : MonoBehaviour
 
     private void SetCamera(Player player)
     {
-        _camera.transform.parent = player.transform;
+        _camera.transform.parent = GameObject.FindGameObjectWithTag("CameraPosition").transform;
         _camera.transform.localPosition = _player_camera_position;
         _camera.GetComponent<CameraLook>().SetPreset(player);
     }

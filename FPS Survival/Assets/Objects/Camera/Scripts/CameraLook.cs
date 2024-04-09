@@ -20,21 +20,23 @@ public class CameraLook : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (_body == null || _inputManager == null)
             return;
 
-        verticalRotation();
         horizontalRotation();
+        verticalRotation();
     }
 
     void verticalRotation()
     {
         float mouseY = _inputManager.inputMaster.CameraLook.MouseY.ReadValue<float>() * mouseSesetivity * Time.deltaTime;
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, _body.localEulerAngles.y, transform.localRotation.z);
+        //transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(xRotation, _body.localEulerAngles.y, 0), 10f * Time.deltaTime);
     }
 
     void horizontalRotation()
