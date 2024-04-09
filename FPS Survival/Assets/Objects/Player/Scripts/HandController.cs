@@ -9,6 +9,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private float pickupDistance;
     [SerializeField] private float throwForce;
     [SerializeField] private ForceMode throwForceMode;
+    [SerializeField] private Transform weaponHolder;
 
     public Weapon weapon;
     private void Awake()
@@ -60,9 +61,9 @@ public class HandController : MonoBehaviour
         _weapon.SetPreset(GetComponent<InputManager>());
 
         _weapon.enabled = true;
-        _weapon.transform.SetParent(Camera.main.transform);
+        _weapon.transform.SetParent(weaponHolder);
         _weapon.transform.localPosition = _weapon.offset;
-        _weapon.transform.rotation = Camera.main.transform.rotation;
+        _weapon.transform.rotation = weaponHolder.rotation;
         _weapon.GetComponent<Rigidbody>().isKinematic = true;
         if (weapon == null)
         {
