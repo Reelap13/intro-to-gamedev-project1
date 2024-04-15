@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     private HealthSystem healthSystem;
     private HandController handController;
 
+    public PlayerMovement Movement {get => movement;}
+    public HealthSystem HealthSystem {get => healthSystem;}
+    public HandController HandController {get => handController;}
+
     // Start is called before the first frame update
     void Start()
     {

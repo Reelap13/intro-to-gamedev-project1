@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Attack))]
 [RequireComponent(typeof(Magazine))]
@@ -11,9 +12,11 @@ public class Weapon : MonoBehaviour
     private Attack attack;
     private Magazine magazine;
     private Reload reload;
+
+    public Sprite icon;
     public Vector3 offset;
 
-    private void Start()
+    private void OnEnable()
     {
         attack = GetComponent<Attack>();
         reload = GetComponent<Reload>();

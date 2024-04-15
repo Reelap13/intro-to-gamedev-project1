@@ -18,6 +18,10 @@ public class ShowAmmos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (controller.weapon != null)
+        {
+            magazine = controller.weapon.GetComponent<Magazine>();
+        }
         text.text = magazine.CurrentAmmo.ToString() + "/" + magazine.MaxAmmoCapacity.ToString();
     }
 }

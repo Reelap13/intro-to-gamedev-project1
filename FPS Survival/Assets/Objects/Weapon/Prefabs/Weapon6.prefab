@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad674c5c202ee5419b090fa40506e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: bb39907b0dcc3864686fb7442c2c351b, type: 3}
   offset: {x: -0.30211484, y: -0.0026562638, z: -0.053880617}
 --- !u!114 &7951863447336539478
 MonoBehaviour:

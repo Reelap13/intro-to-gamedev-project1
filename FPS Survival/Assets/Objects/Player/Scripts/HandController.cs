@@ -14,13 +14,14 @@ public class HandController : MonoBehaviour
     [SerializeField] private InputManager inputManager;
 
     public Weapon weapon;
+    public List<Weapon> Weapons { get => weapons; }
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
         CreateDefaultWeapon();
-        inputManager.inputMaster.Hand.Slot1.started += _ => ReplaceActiveWeapon(weapons[0]);
-        inputManager.inputMaster.Hand.Slot2.started += _ => ReplaceActiveWeapon(weapons[1]);
-        inputManager.inputMaster.Hand.Slot3.started += _ => ReplaceActiveWeapon(weapons[2]);
+        inputManager.inputMaster.Hand.Slot1.started += _ => ReplaceActiveWeapon(0);
+        inputManager.inputMaster.Hand.Slot2.started += _ => ReplaceActiveWeapon(1);
+        inputManager.inputMaster.Hand.Slot3.started += _ => ReplaceActiveWeapon(2);
         inputManager.inputMaster.Hand.PickUpWeapon.started += _ => TryPickupWeapon();
         inputManager.inputMaster.Hand.DropWeapon.started += _ => RemoveCurrentWeapon();
     }
@@ -33,8 +34,9 @@ public class HandController : MonoBehaviour
         {
             Weapon newWeapon = col.GetComponent<Weapon>();
             if (newWeapon == null || newWeapon.enabled) continue;
-            if (newWeapon != null && !weapons.Contains(newWeapon) && weapons.Count <= maxCapacity)
+            if (newWeapon != null && !weapons.Contains(newWeapon) && weapons.Count <= maxCapacity-1)
             {
+                Debug.Log(weapons.Count);
                 AddWeapon(newWeapon);
                 return;
             }
@@ -58,13 +60,14 @@ public class HandController : MonoBehaviour
         else
         {
             _weapon.gameObject.SetActive(false);
-            weapons.Add(_weapon);
         }
+        weapons.Add(_weapon);
     }
 
     public void RemoveCurrentWeapon()
     {
         if (weapon == null) return;
+        weapons.Remove(weapon);
         weapon.gameObject.SetActive(true);
         weapon.enabled = false;
         weapon.GetComponent<Rigidbody>().isKinematic = false;
@@ -73,29 +76,21 @@ public class HandController : MonoBehaviour
         weapon = null;
     }
 
-    public void ReplaceActiveWeapon(Weapon _weapon)
+    public void ReplaceActiveWeapon(int index)
     {
-        if(weapon == null)
+        if (index > weapons.Count - 1) return;
+
+        Weapon _weapon = weapons[index];
+        if (weapon == null)
         {
             _weapon.gameObject.SetActive(true);
             weapon = _weapon;
-            weapons.Remove(_weapon);
             return;
 
         }
-        _weapon.gameObject.SetActive(true);
         weapon.gameObject.SetActive(false);
-        Weapon activeWeapon = weapon;
+        _weapon.gameObject.SetActive(true);
         weapon = _weapon;
-
-        if (weapons.Contains(_weapon))
-        {
-            weapons[weapons.IndexOf(_weapon)] = activeWeapon;
-        }
-        else
-        {
-            weapons.Add(activeWeapon);
-        }
     }
 
     private void CreateDefaultWeapon()
