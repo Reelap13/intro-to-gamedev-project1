@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InputManager))]
 public class HandController : MonoBehaviour
 {
     [SerializeField] private Weapon defaultWeaponPref;
@@ -10,34 +11,18 @@ public class HandController : MonoBehaviour
     [SerializeField] private float throwForce;
     [SerializeField] private ForceMode throwForceMode;
     [SerializeField] private Transform weaponHolder;
+    [SerializeField] private InputManager inputManager;
 
     public Weapon weapon;
-    private void Awake()
+    private void Start()
     {
+        inputManager = GetComponent<InputManager>();
         CreateDefaultWeapon();
-    }
-
-    public void Operate()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && weapons.Count >= 1)
-        {
-            ReplaceActiveWeapon(weapons[0]);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && weapons.Count >= 2)
-        {
-            ReplaceActiveWeapon(weapons[1]);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            TryPickupWeapon();
-        }
-
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            RemoveCurrentWeapon();
-        }
-
+        inputManager.inputMaster.Hand.Slot1.started += _ => ReplaceActiveWeapon(weapons[0]);
+        inputManager.inputMaster.Hand.Slot2.started += _ => ReplaceActiveWeapon(weapons[1]);
+        inputManager.inputMaster.Hand.Slot3.started += _ => ReplaceActiveWeapon(weapons[2]);
+        inputManager.inputMaster.Hand.PickUpWeapon.started += _ => TryPickupWeapon();
+        inputManager.inputMaster.Hand.DropWeapon.started += _ => RemoveCurrentWeapon();
     }
 
     private void TryPickupWeapon()
@@ -48,7 +33,7 @@ public class HandController : MonoBehaviour
         {
             Weapon newWeapon = col.GetComponent<Weapon>();
             if (newWeapon == null || newWeapon.enabled) continue;
-            if (newWeapon != null && !weapons.Contains(newWeapon))
+            if (newWeapon != null && !weapons.Contains(newWeapon) && weapons.Count <= maxCapacity)
             {
                 AddWeapon(newWeapon);
                 return;
@@ -83,7 +68,7 @@ public class HandController : MonoBehaviour
         weapon.gameObject.SetActive(true);
         weapon.enabled = false;
         weapon.GetComponent<Rigidbody>().isKinematic = false;
-        weapon.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce, throwForceMode);
+        weapon.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * throwForce, throwForceMode);
         weapon.transform.SetParent(null);
         weapon = null;
     }

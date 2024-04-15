@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement.Move();
-        handController.Operate();
     }
 
     void TryInvokeDeath(int health)

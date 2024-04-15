@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4959664057843824518}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 41613090028325809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enviroment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3503760155692253123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161910855673478257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,9 +156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7230396811647664021}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tile 3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 3056984768291620347}
   - component: {fileID: 7518019853184970222}
   - component: {fileID: 2699196592363148087}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 732458174669839762, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -360,6 +364,10 @@ PrefabInstance:
     - target: {fileID: 8758888183437167707, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
       propertyPath: m_Name
       value: LPW_Tree_A1_6.5m_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758888183437167707, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8758888183437201531, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,6 +427,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4959664057843824518}
     m_Modifications:
+    - target: {fileID: 2098946608115898719, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2106205178946924010, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7851391
@@ -459,9 +471,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264777259954431236, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3678373702519290768, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678373702519290768, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213712306393504022, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5592119045932227341, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556960266450153156, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -484,6 +516,10 @@ PrefabInstance:
     - target: {fileID: 432035604529955963, guid: e5af6012e68646a41bccc9e94919379e, type: 3}
       propertyPath: m_Name
       value: basket_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 432035604529955963, guid: e5af6012e68646a41bccc9e94919379e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1059813466130620097, guid: e5af6012e68646a41bccc9e94919379e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,6 +583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush_2
       objectReference: {fileID: 0}
+    - target: {fileID: 118898, guid: c7acba2f8a6f0e04a93623f01b987ae7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 455830, guid: c7acba2f8a6f0e04a93623f01b987ae7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5910988
@@ -609,6 +649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 118898, guid: c7acba2f8a6f0e04a93623f01b987ae7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 455830, guid: c7acba2f8a6f0e04a93623f01b987ae7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5398788
@@ -670,6 +714,10 @@ PrefabInstance:
     - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_Name
       value: Flower_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 416298, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -773,6 +821,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4321462934001865569, guid: 1a0dd05a0e8804b49bdb5e15a41afb8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -794,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_Name
       value: Flower_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 416298, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -857,6 +913,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush of grasses
       objectReference: {fileID: 0}
+    - target: {fileID: 347827524848943560, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 468268963226148537, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 762485062193819967, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.1176186
@@ -896,6 +960,30 @@ PrefabInstance:
     - target: {fileID: 762485062193819967, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401401116713271952, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407520743868297778, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737506630008102682, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356795055742368615, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559889969972294080, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259578394417999814, guid: 5da3648e712e1a042b02ebd81060f293, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -955,9 +1043,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5786924569855430426, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355609396180655358, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792045186930116962, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -980,6 +1084,10 @@ PrefabInstance:
     - target: {fileID: 8758888183437167707, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
       propertyPath: m_Name
       value: LPW_Tree_A1_6.5m_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758888183437167707, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8758888183437201531, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1043,6 +1151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_03
       objectReference: {fileID: 0}
+    - target: {fileID: 2604774602014753490, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1048622
@@ -1101,9 +1213,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4959664057843824518}
     m_Modifications:
+    - target: {fileID: 851586858749185533, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209014540300945304, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4624254110547928797, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624254110547928797, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5368869836888784164, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1145,6 +1269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5815679188931136454, guid: 795f478170accac4e97d8c659c1567a0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1166,6 +1294,10 @@ PrefabInstance:
     - target: {fileID: 2604774602014753490, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
       propertyPath: m_Name
       value: trailway_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604774602014753490, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3417620924868647016, guid: 10348d885afc4924e9daa5d07655d02e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1228,6 +1360,10 @@ PrefabInstance:
     - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_Name
       value: Flower_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 145452, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 416298, guid: 2799beb2f34432a42ab450fda2afef6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1331,6 +1467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_02
       objectReference: {fileID: 0}
+    - target: {fileID: 732458174669839762, guid: 94f6ad5cbfa2225449f7a5b5cac83d5f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1393,6 +1533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: trailway_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4321462934001865569, guid: 1a0dd05a0e8804b49bdb5e15a41afb8f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1451,9 +1595,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5786924569855430426, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355609396180655358, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792045186930116962, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1513,9 +1673,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5786924569855430426, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355609396180655358, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7975397610762469677, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792045186930116962, guid: a45260b0795d1ff49ad6c360065cc4dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1535,6 +1711,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4959664057843824518}
     m_Modifications:
+    - target: {fileID: 2098946608115898719, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2106205178946924010, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.984026
@@ -1575,9 +1755,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264777259954431236, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3678373702519290768, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
       propertyPath: m_Name
       value: Bush of grasses (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678373702519290768, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213712306393504022, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5592119045932227341, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556960266450153156, guid: 51a8bb6ec9a8f174e991d0e8c6153fae, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1597,9 +1797,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 161910855673478257}
     m_Modifications:
+    - target: {fileID: 3629659630715166489, guid: 38d4e31a986a6df45a81e209af43aa08, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4970342049995722012, guid: 38d4e31a986a6df45a81e209af43aa08, type: 3}
       propertyPath: m_Name
       value: table_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970342049995722012, guid: 38d4e31a986a6df45a81e209af43aa08, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6132197229552714898, guid: 38d4e31a986a6df45a81e209af43aa08, type: 3}
       propertyPath: m_LocalPosition.x

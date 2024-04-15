@@ -822,8 +822,8 @@ MonoBehaviour:
   <LevelController>k__BackingField: {fileID: 0}
   _enemy_pref: {fileID: 1503366581829201153, guid: 9ea6693da4026b8489e3db799c58c7e0, type: 3}
   _enemy_directory: {fileID: 5315126917460131210}
-  _const_spawn_number: 5
-  _dynamic_spawn_number: 1
+  _const_spawn_number: 0
+  _dynamic_spawn_number: 0
   _distance_from_player_to_spawn: 10
 --- !u!1 &8270283975347030698
 GameObject:

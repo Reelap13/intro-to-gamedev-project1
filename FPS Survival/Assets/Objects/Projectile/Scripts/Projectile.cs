@@ -9,6 +9,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] private int damage = 10;
     [SerializeField] private ProjectileDisposalType type = ProjectileDisposalType.OnAnyCollision;
     [SerializeField] private Rigidbody projectileRigidbody;
+    [SerializeField] private float projectileLifetime = 1f;
 
     private bool isDisposed;
 
@@ -20,6 +21,11 @@ public abstract class Projectile : MonoBehaviour
     public int Damage => damage;
     public ProjectileDisposalType Type => type;
     public Rigidbody Rigidbody => projectileRigidbody;
+
+    private void Start()
+    {
+        Invoke(nameof(DisposeProjectile), projectileLifetime);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -48,11 +54,6 @@ public abstract class Projectile : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void DisposeProjectile()
     {
@@ -70,6 +71,7 @@ public abstract class Projectile : MonoBehaviour
         if (spawnEffectOnDestroy == false) return;
 
         var effect = Instantiate(effectOnDestroyPrefab, transform.position, Quaternion.identity);
+        effect.Play();
 
         Destroy(effect.gameObject, effectOnDestroyLifetime);
     }

@@ -1153,7 +1153,7 @@ MonoBehaviour:
   defaultWeaponPref: {fileID: 400155620036050908, guid: 1cdf2c92e8b10ac4c910ca181d216983, type: 3}
   maxCapacity: 3
   pickupDistance: 2
-  throwForce: 5
+  throwForce: 200
   throwForceMode: 0
   weaponHolder: {fileID: 3242882747939926295}
   weapon: {fileID: 0}
