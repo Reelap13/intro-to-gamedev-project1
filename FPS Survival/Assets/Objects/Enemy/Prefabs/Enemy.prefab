@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5709300580489075448}
   - component: {fileID: 4359434152076628918}
   - component: {fileID: 2408143070769606287}
+  - component: {fileID: 6296615186119688756}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -107,6 +108,7 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: 4787809417462066534}
   <Animator>k__BackingField: {fileID: 8502169992368793245}
   <Collider>k__BackingField: {fileID: 2408143070769606287}
+  <Transform>k__BackingField: {fileID: 374587530125755894}
 --- !u!114 &5709300580489075448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +161,21 @@ CapsuleCollider:
   m_Height: 2.004582
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6296615186119688756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503366581829201153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97ddd7a8e004fb4b9b6db888471f809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Enemy>k__BackingField: {fileID: 5716136169517086694}
+  _droping_items:
+  - {fileID: 7374861514809142466, guid: a7ee3111802603f4ea454d9d456452ae, type: 3}
 --- !u!1 &4672478599792368742
 GameObject:
   m_ObjectHideFlags: 0

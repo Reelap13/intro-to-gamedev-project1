@@ -6,7 +6,7 @@ public class LevelEnemySpawner : MonoBehaviour
 {
     [field: SerializeField]
     public LevelController LevelController { get; private set; }
-    [SerializeField] private GameObject _enemy_pref;
+    [SerializeField] private EnemyPrefab _enemy_pref;
     [SerializeField] private Transform _enemy_directory;
     [SerializeField] private int _const_spawn_number = 5;
     [SerializeField] private int _dynamic_spawn_number = 1;
@@ -38,7 +38,7 @@ public class LevelEnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(Vector3 spawn_point)
     {
-        GameObject enemy_obj = Instantiate(_enemy_pref) as GameObject;
+        GameObject enemy_obj = Instantiate(_enemy_pref.GetEnemyPref()) as GameObject;
         enemy_obj.transform.parent = _enemy_directory;
         enemy_obj.transform.position = spawn_point;
 
