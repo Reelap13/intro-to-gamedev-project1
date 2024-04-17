@@ -6,9 +6,6 @@ public class CameraLook : MonoBehaviour
 {
 
     public float mouseSesetivity;
-
-
-    private InputManager _inputManager;
     private Transform _body;
 
     private float xRotation = 0;
@@ -22,7 +19,7 @@ public class CameraLook : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (_body == null || _inputManager == null)
+        if (_body == null)
             return;
 
         horizontalRotation();
@@ -31,7 +28,7 @@ public class CameraLook : MonoBehaviour
 
     void verticalRotation()
     {
-        float mouseY = _inputManager.inputMaster.CameraLook.MouseY.ReadValue<float>() * mouseSesetivity * Time.deltaTime;
+        float mouseY = InputManager.Instance.GetInputMaster().CameraLook.MouseY.ReadValue<float>() * mouseSesetivity * Time.deltaTime;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
@@ -41,14 +38,13 @@ public class CameraLook : MonoBehaviour
 
     void horizontalRotation()
     {
-        float mouseX = _inputManager.inputMaster.CameraLook.MouseX.ReadValue<float>() * mouseSesetivity * Time.deltaTime;
+        float mouseX = InputManager.Instance.GetInputMaster().CameraLook.MouseX.ReadValue<float>() * mouseSesetivity * Time.deltaTime;
         _body.Rotate(Vector3.up * mouseX);
     }
 
     public void SetPreset(Player player)
     {
         _body = player.transform;
-        _inputManager = player.GetComponent<InputManager>();
         player.OnPlayerDieing.AddListener(ResetBody);
         
     }
@@ -56,7 +52,6 @@ public class CameraLook : MonoBehaviour
     public void ResetBody()
     {
         _body = null;
-        _inputManager = null;
         transform.parent = null;
     }
 }

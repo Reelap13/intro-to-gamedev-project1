@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - CameraPosition
+  - Item
   layers:
   - Default
   - TransparentFX

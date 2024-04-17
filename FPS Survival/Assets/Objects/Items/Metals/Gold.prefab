@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1137354760148169526}
   - component: {fileID: 5611333577172967264}
   - component: {fileID: 5552414978560691221}
+  - component: {fileID: -745477222523816092}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -134,7 +135,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.2, z: 0.8}
+  m_LocalScale: {x: 0.1, y: 0.05, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2985583009282363761}
@@ -212,6 +213,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-745477222523816092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582788520703744733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a253567ff7af9aa4e880de434f35c7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 39d66829824cb1d4da958035ee18213a, type: 3}
+  amount: 1
+  itemName: Gold
 --- !u!1 &8967613943841094511
 GameObject:
   m_ObjectHideFlags: 0

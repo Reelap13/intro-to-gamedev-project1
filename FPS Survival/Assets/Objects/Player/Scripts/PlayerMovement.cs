@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent (typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
-
-    public InputManager inputManager;
     public Rigidbody rb;
 
     public float speed = 10f;
@@ -20,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        inputManager.inputMaster.Movement.Jump.started += _ => Jump();
+        InputManager.Instance.GetInputMaster().Movement.Jump.started += _ => Jump();
         animator = GetComponent<Animator>();
     }
 
@@ -51,14 +49,14 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
 
-        float forward = inputManager.inputMaster.Movement.Forward.ReadValue<float>();
-        float right = inputManager.inputMaster.Movement.Right.ReadValue<float>();
+        float forward = InputManager.Instance.GetInputMaster().Movement.Forward.ReadValue<float>();
+        float right = InputManager.Instance.GetInputMaster().Movement.Right.ReadValue<float>();
 
         Vector3 move = transform.forward * forward + transform.right * right;
 
         move.Normalize();
 
-        move *= inputManager.inputMaster.Movement.Run.ReadValue<float>() == 0 ? speed : runSpeed;
+        move *= InputManager.Instance.GetInputMaster().Movement.Run.ReadValue<float>() == 0 ? speed : runSpeed;
 
         float velocityX = Vector3.Dot(move.normalized, transform.right);
         float velocityZ = Vector3.Dot(move.normalized, transform.forward);

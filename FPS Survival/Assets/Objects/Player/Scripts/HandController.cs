@@ -11,19 +11,17 @@ public class HandController : MonoBehaviour
     [SerializeField] private float throwForce;
     [SerializeField] private ForceMode throwForceMode;
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private InputManager inputManager;
 
     public Weapon weapon;
     public List<Weapon> Weapons { get => weapons; }
     private void Start()
     {
-        inputManager = GetComponent<InputManager>();
         CreateDefaultWeapon();
-        inputManager.inputMaster.Hand.Slot1.started += _ => ReplaceActiveWeapon(0);
-        inputManager.inputMaster.Hand.Slot2.started += _ => ReplaceActiveWeapon(1);
-        inputManager.inputMaster.Hand.Slot3.started += _ => ReplaceActiveWeapon(2);
-        inputManager.inputMaster.Hand.PickUpWeapon.started += _ => TryPickupWeapon();
-        inputManager.inputMaster.Hand.DropWeapon.started += _ => RemoveCurrentWeapon();
+        InputManager.Instance.GetInputMaster().Hand.Slot1.started += _ => ReplaceActiveWeapon(0);
+        InputManager.Instance.GetInputMaster().Hand.Slot2.started += _ => ReplaceActiveWeapon(1);
+        InputManager.Instance.GetInputMaster().Hand.Slot3.started += _ => ReplaceActiveWeapon(2);
+        InputManager.Instance.GetInputMaster().Hand.PickUpWeapon.started += _ => TryPickupWeapon();
+        InputManager.Instance.GetInputMaster().Hand.DropWeapon.started += _ => RemoveCurrentWeapon();
     }
 
     private void TryPickupWeapon()
@@ -45,7 +43,7 @@ public class HandController : MonoBehaviour
 
     public void AddWeapon(Weapon _weapon)
     {
-        _weapon.SetPreset(GetComponent<InputManager>());
+        _weapon.SetPreset();
 
         _weapon.enabled = true;
         _weapon.transform.SetParent(weaponHolder);
