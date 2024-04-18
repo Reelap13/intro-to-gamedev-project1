@@ -66,6 +66,8 @@ public class InventoryController : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
+            InputManager.Instance.GetInputMaster().Hand.Enable();
+            InputManager.Instance.GetInputMaster().Attack.Enable();
         }
         else
         {
@@ -73,6 +75,8 @@ public class InventoryController : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
+            InputManager.Instance.GetInputMaster().Hand.Disable();
+            InputManager.Instance.GetInputMaster().Attack.Disable();
         }
         
     }

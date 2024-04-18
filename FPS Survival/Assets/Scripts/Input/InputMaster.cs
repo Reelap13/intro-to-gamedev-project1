@@ -391,6 +391,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenCloseCraftingMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""014e2564-09c1-4a7f-a41b-592388aa16cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -402,6 +411,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""OpenCloseInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3ce5360-f5d9-4692-8f67-1768cd974f82"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenCloseCraftingMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -435,6 +455,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_OpenCloseInventory = m_Inventory.FindAction("OpenCloseInventory", throwIfNotFound: true);
+        m_Inventory_OpenCloseCraftingMenu = m_Inventory.FindAction("OpenCloseCraftingMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -761,11 +782,13 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Inventory;
     private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
     private readonly InputAction m_Inventory_OpenCloseInventory;
+    private readonly InputAction m_Inventory_OpenCloseCraftingMenu;
     public struct InventoryActions
     {
         private @InputMaster m_Wrapper;
         public InventoryActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @OpenCloseInventory => m_Wrapper.m_Inventory_OpenCloseInventory;
+        public InputAction @OpenCloseCraftingMenu => m_Wrapper.m_Inventory_OpenCloseCraftingMenu;
         public InputActionMap Get() { return m_Wrapper.m_Inventory; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -778,6 +801,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @OpenCloseInventory.started += instance.OnOpenCloseInventory;
             @OpenCloseInventory.performed += instance.OnOpenCloseInventory;
             @OpenCloseInventory.canceled += instance.OnOpenCloseInventory;
+            @OpenCloseCraftingMenu.started += instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.performed += instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.canceled += instance.OnOpenCloseCraftingMenu;
         }
 
         private void UnregisterCallbacks(IInventoryActions instance)
@@ -785,6 +811,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @OpenCloseInventory.started -= instance.OnOpenCloseInventory;
             @OpenCloseInventory.performed -= instance.OnOpenCloseInventory;
             @OpenCloseInventory.canceled -= instance.OnOpenCloseInventory;
+            @OpenCloseCraftingMenu.started -= instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.performed -= instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.canceled -= instance.OnOpenCloseCraftingMenu;
         }
 
         public void RemoveCallbacks(IInventoryActions instance)
@@ -831,5 +860,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     public interface IInventoryActions
     {
         void OnOpenCloseInventory(InputAction.CallbackContext context);
+        void OnOpenCloseCraftingMenu(InputAction.CallbackContext context);
     }
 }

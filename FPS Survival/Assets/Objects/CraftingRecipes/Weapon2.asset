@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a336516220983244182d4f1eca061ec2, type: 3}
+  m_Name: Weapon2
+  m_EditorClassIdentifier: 
+  Materials:
+  - name: Gold
+    amount: 1
+  - name: Steel
+    amount: 5
+  - name: Gunpowder
+    amount: 10
+  - name: purple crystal
+    amount: 1
+  Results:
+  - {fileID: 1697296483357883055, guid: c64a9748b7136254c9ea8646ca5daea7, type: 3}

@@ -29,7 +29,7 @@ public class PlayerInventoryController : MonoBehaviour
             if (col.CompareTag("Item"))
             {
                 ItemData data = col.GetComponent<ItemData>();
-                Item item = new(ItemsTypes.SUPPLIES, data.icon, data.name);
+                Item item = new(ItemsTypes.SUPPLIES, data.icon, data.itemName);
                 ItemAmount itemAmount = new(item, data.amount);
                 itemAmount.item.SetStartCell(GetFreeCell(itemAmount));
                 AddItem(itemAmount);

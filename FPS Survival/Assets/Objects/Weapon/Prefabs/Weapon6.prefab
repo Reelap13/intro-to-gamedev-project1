@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad674c5c202ee5419b090fa40506e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: bb39907b0dcc3864686fb7442c2c351b, type: 3}
+  icon: {fileID: 21300000, guid: f043107cef5308648934f46ee6eb76c5, type: 3}
   offset: {x: -0.30211484, y: -0.0026562638, z: -0.053880617}
 --- !u!114 &7951863447336539478
 MonoBehaviour:
@@ -113,7 +113,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.2, z: 0.1}
+  m_Size: {x: 0.3, y: 0.2, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1445229406718473781
 Rigidbody:
@@ -253,6 +253,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1318460613128657674, guid: 9545cf8a0378b5545a96dcdefb2f420e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c16b6713dadaf2f40bd6c4e6baee4e31, type: 2}
+    - target: {fileID: 1318460613128657674, guid: 9545cf8a0378b5545a96dcdefb2f420e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c16b6713dadaf2f40bd6c4e6baee4e31, type: 2}
     - target: {fileID: 4460770153449642512, guid: 9545cf8a0378b5545a96dcdefb2f420e, type: 3}
       propertyPath: m_Layer
       value: 7
