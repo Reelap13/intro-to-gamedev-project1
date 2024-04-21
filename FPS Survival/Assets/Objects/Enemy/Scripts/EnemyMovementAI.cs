@@ -12,6 +12,7 @@ public class EnemyMovementAI : MonoBehaviour
     [SerializeField] private float _accelertion = 8f;
 
     private NavMeshAgent _agent => Enemy.Agent;
+    private Transform _transform => Enemy.Transform;
     private Transform _target => Enemy.Target;
     private Animator _animator => Enemy.Animator;
 
@@ -45,6 +46,13 @@ public class EnemyMovementAI : MonoBehaviour
         return !IsBlocking && Enemy.IsAlive;
     }
 
+    public void LookToTarget()
+    {
+        if (_target == null) return;
+
+        Vector3 _direction = (_target.position - _transform.position).normalized;
+        _transform.rotation = Quaternion.LookRotation(_direction);
+    }
     public void Block()
     {
         IsBlocking = false;
