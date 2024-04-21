@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6086885, g: 0.7550989, b: 0.8347383, a: 1}
+  m_IndirectSpecularColor: {r: 0.6086885, g: 0.7550991, b: 0.8347386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -403,6 +403,10 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _enemy_pref
+      value: 
+      objectReference: {fileID: 2131689363174068039, guid: 280dba5d655930b49b0c4475e96ccd23, type: 3}
+    - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _distance_from_player_to_spawn
       value: 20
       objectReference: {fileID: 0}
@@ -417,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 8379503237674183030, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _level_size.y
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405763782121414431, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: m_Name
+      value: Directories
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
