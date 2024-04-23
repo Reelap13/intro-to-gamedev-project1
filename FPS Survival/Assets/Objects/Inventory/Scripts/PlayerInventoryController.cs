@@ -91,4 +91,9 @@ public class PlayerInventoryController : MonoBehaviour
     {
         return _inventory.ItemCount(itemName);
     }
+
+    public ItemAmount GetItem(string itemName)
+    {
+        return _inventory.GetItem(itemName);
+    }
 }

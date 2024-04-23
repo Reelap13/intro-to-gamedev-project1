@@ -106,5 +106,17 @@ namespace Inventory
             }
             return 0;
         }
+
+        public ItemAmount GetItem(string itemName)
+        {
+            foreach (ItemAmount item in _items)
+            {
+                if (item.item.Name == itemName)
+                {
+                    return item;
+                }
+            }
+            return new();
+        }
     }
 }

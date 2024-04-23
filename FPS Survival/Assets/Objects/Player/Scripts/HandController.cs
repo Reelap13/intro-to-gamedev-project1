@@ -20,6 +20,7 @@ public class HandController : MonoBehaviour
         InputManager.Instance.GetInputMaster().Hand.Slot1.started += _ => ReplaceActiveWeapon(0);
         InputManager.Instance.GetInputMaster().Hand.Slot2.started += _ => ReplaceActiveWeapon(1);
         InputManager.Instance.GetInputMaster().Hand.Slot3.started += _ => ReplaceActiveWeapon(2);
+        InputManager.Instance.GetInputMaster().Hand.Slot4.started += _ => ReplaceActiveWeapon(3);
         InputManager.Instance.GetInputMaster().Hand.PickUpWeapon.started += _ => TryPickupWeapon();
         InputManager.Instance.GetInputMaster().Hand.DropWeapon.started += _ => RemoveCurrentWeapon();
     }

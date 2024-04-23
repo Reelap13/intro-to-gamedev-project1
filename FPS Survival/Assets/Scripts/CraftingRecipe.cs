@@ -37,7 +37,7 @@ public class CraftingRecipe : ScriptableObject
             {
                 if(controller.ItemCount(item.name) == item.amount)
                 {
-                    controller.RemoveItem(new(new(Inventory.ItemsTypes.SUPPLIES, null, item.name), item.amount));
+                    controller.RemoveItem(controller.GetItem(item.name));
                 }
                 else
                 {

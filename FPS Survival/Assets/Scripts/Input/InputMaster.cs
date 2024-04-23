@@ -319,6 +319,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot4"",
+                    ""type"": ""Button"",
+                    ""id"": ""39ba8bdf-b705-4361-9454-03f2dd7a0029"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -374,6 +383,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Slot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""506fada1-d9f9-4fb5-9f29-c879ec046c98"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -452,6 +472,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Hand_Slot1 = m_Hand.FindAction("Slot1", throwIfNotFound: true);
         m_Hand_Slot2 = m_Hand.FindAction("Slot2", throwIfNotFound: true);
         m_Hand_Slot3 = m_Hand.FindAction("Slot3", throwIfNotFound: true);
+        m_Hand_Slot4 = m_Hand.FindAction("Slot4", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_OpenCloseInventory = m_Inventory.FindAction("OpenCloseInventory", throwIfNotFound: true);
@@ -708,6 +729,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Hand_Slot1;
     private readonly InputAction m_Hand_Slot2;
     private readonly InputAction m_Hand_Slot3;
+    private readonly InputAction m_Hand_Slot4;
     public struct HandActions
     {
         private @InputMaster m_Wrapper;
@@ -717,6 +739,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Slot1 => m_Wrapper.m_Hand_Slot1;
         public InputAction @Slot2 => m_Wrapper.m_Hand_Slot2;
         public InputAction @Slot3 => m_Wrapper.m_Hand_Slot3;
+        public InputAction @Slot4 => m_Wrapper.m_Hand_Slot4;
         public InputActionMap Get() { return m_Wrapper.m_Hand; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -741,6 +764,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Slot3.started += instance.OnSlot3;
             @Slot3.performed += instance.OnSlot3;
             @Slot3.canceled += instance.OnSlot3;
+            @Slot4.started += instance.OnSlot4;
+            @Slot4.performed += instance.OnSlot4;
+            @Slot4.canceled += instance.OnSlot4;
         }
 
         private void UnregisterCallbacks(IHandActions instance)
@@ -760,6 +786,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Slot3.started -= instance.OnSlot3;
             @Slot3.performed -= instance.OnSlot3;
             @Slot3.canceled -= instance.OnSlot3;
+            @Slot4.started -= instance.OnSlot4;
+            @Slot4.performed -= instance.OnSlot4;
+            @Slot4.canceled -= instance.OnSlot4;
         }
 
         public void RemoveCallbacks(IHandActions instance)
@@ -856,6 +885,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnSlot1(InputAction.CallbackContext context);
         void OnSlot2(InputAction.CallbackContext context);
         void OnSlot3(InputAction.CallbackContext context);
+        void OnSlot4(InputAction.CallbackContext context);
     }
     public interface IInventoryActions
     {

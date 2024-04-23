@@ -28,6 +28,7 @@ public class Slot : MonoBehaviour
     public void ResetAll()
     {
         icon.sprite = null;
+        icon.color = Color.clear;
         amount.text = null;
         itemName.text = null;
     }

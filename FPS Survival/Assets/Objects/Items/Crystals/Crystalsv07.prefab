@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4622216851409236}
   - component: {fileID: 33484047999707492}
   - component: {fileID: 23905258216596770}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4026129332107462}
   - component: {fileID: -3649401165874652588}
-  m_Layer: 8
+  - component: {fileID: 5263722894253022278}
+  m_Layer: 0
   m_Name: Crystalsv07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4175938476957678}
@@ -120,7 +121,6 @@ Transform:
   - {fileID: 4400613341087766}
   - {fileID: 4177327000336354}
   - {fileID: 4949474561583172}
-  - {fileID: 4688032897098302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-3649401165874652588
@@ -138,6 +138,27 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7af1e0b0ee7eb99449cd24c626f351d9, type: 3}
   amount: 1
   itemName: green crystal
+--- !u!65 &5263722894253022278
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334420156022608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 4, z: 3}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1411908645871010
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +170,7 @@ GameObject:
   - component: {fileID: 4949474561583172}
   - component: {fileID: 33437120390252860}
   - component: {fileID: 23094861116533650}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +253,7 @@ GameObject:
   - component: {fileID: 4175938476957678}
   - component: {fileID: 33942344339608766}
   - component: {fileID: 23347777081661606}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +336,7 @@ GameObject:
   - component: {fileID: 4713947052416142}
   - component: {fileID: 33222060786620956}
   - component: {fileID: 23311519963752172}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,100 +408,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1584136685402144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4688032897098302}
-  - component: {fileID: 108914012361789228}
-  m_Layer: 8
-  m_Name: Point light (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4688032897098302
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584136685402144}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.21, y: 2.35, z: 0.41}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4026129332107462}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &108914012361789228
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584136685402144}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 0.5816431, g: 1, b: 0.44852942, a: 1}
-  m_Intensity: 2
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967039
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &1785760092547522
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +419,7 @@ GameObject:
   - component: {fileID: 4400613341087766}
   - component: {fileID: 33353140105432998}
   - component: {fileID: 23471246620183688}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +502,7 @@ GameObject:
   - component: {fileID: 4177327000336354}
   - component: {fileID: 33292222242940874}
   - component: {fileID: 23947569223374206}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +585,7 @@ GameObject:
   - component: {fileID: 4872639443840688}
   - component: {fileID: 33154089085400464}
   - component: {fileID: 23856695200117404}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BetterCrystal01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
