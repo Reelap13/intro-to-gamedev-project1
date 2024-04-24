@@ -49,11 +49,11 @@ public class LevelEnemySpawner : MonoBehaviour
     private List<Vector3> GetSpawnPoints()
     {
         List<Vector3> spawn_positions = new List<Vector3>();
-        foreach(var tile in LevelController.LevelGenerator.Level.Values)
+        /*foreach(var tile in LevelController.LevelGenerator.Level.Values)
         {
             if ((tile.transform.position - _player.transform.position).magnitude >= _distance_from_player_to_spawn)
                 spawn_positions.Add(tile.transform.position);
-        }
+        }*/
         return spawn_positions;
     }
 

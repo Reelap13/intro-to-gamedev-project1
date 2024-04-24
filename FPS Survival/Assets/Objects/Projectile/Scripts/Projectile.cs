@@ -23,7 +23,6 @@ public abstract class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (isDisposed) return;
 
         if (collision.transform.CompareTag("Enemy"))
