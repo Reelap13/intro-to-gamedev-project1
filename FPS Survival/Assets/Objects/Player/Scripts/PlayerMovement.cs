@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
@@ -14,12 +15,16 @@ public class PlayerMovement : MonoBehaviour
 
     public bool _isGrounded;
 
+    public AudioClip footsteps;
+
     private Animator animator;
+    private AudioSource source;
 
     private void Start()
     {
         InputManager.Instance.GetInputMaster().Movement.Jump.started += _ => Jump();
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,6 +40,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.CompareTag("Ground"))
         {
             _isGrounded = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.transform.CompareTag("Ground"))
+        {
+            _isGrounded = true;
         }
     }
 
@@ -65,5 +78,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("VelocityZ", velocityZ, 0.1f, Time.deltaTime);
 
         rb.velocity = new(move.x, rb.velocity.y, move.z);
+
+        if (!source.isPlaying && !Mathf.Approximately(move.magnitude, 0) && _isGrounded)
+        {
+            Debug.Log("step");
+            source.clip = footsteps;
+            source.Play();
+        }
     }
 }

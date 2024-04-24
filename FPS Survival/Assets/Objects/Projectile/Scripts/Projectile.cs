@@ -17,6 +17,8 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] private ParticleSystem effectOnDestroyPrefab;
     [SerializeField] private float effectOnDestroyLifetime = 2f;
 
+    [SerializeField] private AudioClip explosion;
+
 
     public int Damage => damage;
     public ProjectileDisposalType Type => type;
@@ -72,6 +74,8 @@ public abstract class Projectile : MonoBehaviour
 
         var effect = Instantiate(effectOnDestroyPrefab, transform.position, Quaternion.identity);
         effect.Play();
+        effect.gameObject.GetComponent<AudioSource>().clip = explosion;
+        effect.gameObject.GetComponent<AudioSource>().Play();
 
         Destroy(effect.gameObject, effectOnDestroyLifetime);
     }

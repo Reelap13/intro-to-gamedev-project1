@@ -1204,11 +1204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _const_spawn_number
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _dynamic_spawn_number
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6117798229184742798, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _distance_from_player_to_spawn
