@@ -7,7 +7,7 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
 {
     [field: SerializeField]
     public Enemy Enemy { get; private set; }
-    [NonSerialized] public UnityEvent OnDieing = new UnityEvent();
+    [NonSerialized] public UnityEvent<Enemy> OnDieing = new UnityEvent<Enemy>();
     [NonSerialized] public UnityEvent<float> OnTakingDamage = new UnityEvent<float>();
     [NonSerialized] public UnityEvent<float> OnChangingHealth = new UnityEvent<float>();
     [SerializeField] private float _start_health = 10f;
@@ -45,12 +45,13 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
 
     private void Die()
     {
-        OnDieing.Invoke();
+        OnDieing.Invoke(Enemy);
 
         Enemy.Animator.SetTrigger("Death");
         Enemy.Movement.Block();
         Enemy.Collider.enabled = false;
         Enemy.Agent.enabled = false;
+        Debug.Log("Die");
 
         StartCoroutine(DestroyAnfterDieing());
     }

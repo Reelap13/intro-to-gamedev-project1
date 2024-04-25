@@ -5,11 +5,11 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [field: SerializeField]
-    public LevelGenerator LevelGenerator { get; private set; }
+    public LevelGenerator.LevelGenerator LevelGenerator { get; private set; }
     [field: SerializeField]
     public LevelPlayerSpawner PlayerSpawner { get; private set; }
     [field: SerializeField]
-    public LevelEnemySpawner EnemySpawner { get; private set; }
+    public Enemies.EnemySystem EnemySystem { get; private set; }
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class LevelController : MonoBehaviour
 
         GameObject player = PlayerSpawner.CreatePlayer();
 
-        EnemySpawner.SetPlayer(player.transform);
-        EnemySpawner.StartSpawningEnemy();
+        EnemySystem.SetPreset(player.transform);
+        EnemySystem.StartSpawningEnemies();
     }
 }

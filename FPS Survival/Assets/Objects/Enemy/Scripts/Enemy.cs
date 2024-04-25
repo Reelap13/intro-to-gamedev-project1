@@ -22,7 +22,8 @@ public class Enemy : MonoBehaviour
     public Collider Collider { get; private set; }
     [field: SerializeField]
     public Transform Transform { get; private set; }
-
+    
+    [field: SerializeField]
     public Transform Target { get; private set; }
 
     public void SetTarget(Transform target)
