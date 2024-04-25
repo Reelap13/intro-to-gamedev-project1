@@ -19,9 +19,11 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
         [SerializeField] private int _building_size = 4;
 
         private float _distance_to_city = 10f;
+        private int _build_safy_size = 10;
         
         public Dictionary<City, List<Building>> Buildings { get; private set; }
         public FloatArray2D BuildingMap { get; private set; }
+        public FloatArray2D GradientBuildingMap { get; private set; }
         public Dictionary<City, List<Building>> GenerateBuildings(List<City> cities, FloatArray2D roads_map)
         {
             Random.State previous_state = Random.state;
@@ -39,6 +41,7 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
 
             Random.state = previous_state;
 
+            GradientBuildingMap = FloatArray2D.GenerateGradientBiomMap(BuildingMap, _build_safy_size, false);
             return Buildings;
         }
 

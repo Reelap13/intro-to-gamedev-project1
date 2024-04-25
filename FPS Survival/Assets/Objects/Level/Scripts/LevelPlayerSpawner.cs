@@ -8,7 +8,7 @@ public class LevelPlayerSpawner : MonoBehaviour
     [field: SerializeField]
     public LevelController LevelController { get; private set; }
     [SerializeField] private GameObject _player_pref;
-    [SerializeField] private Vector3 _spawning_offset = Vector3.up * 5;
+    [SerializeField] private Vector3 _spawning_offset = Vector3.up;
     [SerializeField] private Transform _player_directory;
     [SerializeField] private Vector3 _player_camera_position = Vector3.up * 0.6f;
 
@@ -21,7 +21,9 @@ public class LevelPlayerSpawner : MonoBehaviour
 
     public GameObject CreatePlayer()
     {
-        _player = SpawnPlayer(LevelController.LevelGenerator.GetCenter() + _spawning_offset);
+        Vector3 center = LevelController.LevelGenerator.GetCenter();
+        Vector3 spawn_point = LevelController.LevelGenerator.GetFreePoint(center) + _spawning_offset;
+        _player = SpawnPlayer(spawn_point);
 
         return _player.gameObject;
     }

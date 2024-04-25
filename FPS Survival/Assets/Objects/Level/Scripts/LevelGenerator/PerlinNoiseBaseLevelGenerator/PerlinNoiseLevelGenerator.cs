@@ -1,5 +1,6 @@
 using LevelGenerator.PerlinNoiseGenerator.Cities;
 using LevelGenerator.PerlinNoiseGenerator.Environment;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -51,6 +52,7 @@ namespace LevelGenerator.PerlinNoiseGenerator
 
             ApplyTextures(terrain_data);
 
+            Surface.BuildNavMesh();
             Random.state = previous_state;
         }
 
@@ -86,7 +88,7 @@ namespace LevelGenerator.PerlinNoiseGenerator
 
         public override Vector3 GetCenter()
         {
-            return new Vector3(0, 10, 0);
+            return new Vector3(Width/2, Terrain.SampleHeight(new Vector3(Width/2, 0, Height/2)), Height/2);
         }
 
         public void AddToBlockedMap(FloatArray2D map)
@@ -95,6 +97,21 @@ namespace LevelGenerator.PerlinNoiseGenerator
                 for (int y = 0; y < Height; ++y)
                     if (map[x, y] == 1)
                         BlockedMap[x, y] = 1;
+        }
+
+        public override Vector3 GetFreePoint(Vector3 position)
+        {
+            Vector2Int parsed_position = Cities.BuildingsGenerator.GradientBuildingMap.GetNearestLowerValue((int)position.x, (int)position.z, 0);
+            Vector3 free_position = new Vector3(parsed_position.y, 0, parsed_position.x);
+            free_position.y = Terrain.SampleHeight(free_position);
+            return free_position;
+        }
+        public override Vector3 BoardPosition(Vector3 position, float bounds)
+        {
+            return new Vector3(
+                Mathf.Clamp(position.x, bounds, Width - bounds),
+                position.y,
+                Mathf.Clamp(position.z, bounds, Height - bounds));
         }
     }
 }

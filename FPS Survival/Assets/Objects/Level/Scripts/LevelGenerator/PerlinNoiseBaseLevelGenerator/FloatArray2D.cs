@@ -197,5 +197,34 @@ namespace LevelGenerator.PerlinNoiseGenerator
                 }
             }
         }
+        public Vector2Int GetNearestLowerValue(int x, int y, float value)
+        {
+            Queue<Vector2Int> queue = new Queue<Vector2Int>();
+            HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
+
+            queue.Enqueue(new Vector2Int(x, y));
+            visited.Add(new Vector2Int(x, y));
+
+            while (queue.Count > 0)
+            {
+                Vector2Int current = queue.Dequeue();
+
+                List<Vector2Int> neighbors = GetNeighborCells(current.x, current.y);
+
+                foreach (Vector2Int neighbor in neighbors)
+                {
+                    if (!visited.Contains(neighbor))
+                    {
+                        if (_data[neighbor.x, neighbor.y] <= value)
+                            return neighbor;
+
+                        visited.Add(neighbor);
+                        queue.Enqueue(neighbor);
+                    }
+                }
+            }
+
+            return Vector2Int.zero;
+        }
     }
 }

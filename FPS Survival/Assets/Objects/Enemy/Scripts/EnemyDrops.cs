@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDrops : MonoBehaviour
+namespace Enemies
 {
-    [field: SerializeField]
-    public Enemy Enemy { get; private set; }
-    [SerializeField] private GameObject[] _droping_items;
-
-    private void Awake()
+    public class EnemyDrops : MonoBehaviour
     {
-        Enemy.TakingDamage.OnDieing.AddListener(DropItem);
-    }
+        [field: SerializeField]
+        public Enemy Enemy { get; private set; }
+        [SerializeField] private GameObject[] _droping_items;
 
-    private void DropItem()
-    {
-        GameObject item_pref = _droping_items[Random.Range(0, _droping_items.Length)];
-        GameObject item = CreateDropedItem(item_pref);
-    }
+        private void Awake()
+        {
+            Enemy.TakingDamage.OnDieing.AddListener((Enemy enemy) => DropItem());
+        }
 
-    private GameObject CreateDropedItem(GameObject item_pref)
-    {
-        GameObject item = Instantiate(item_pref) as GameObject;
-        item.transform.position = Enemy.Transform.position;
+        private void DropItem()
+        {
+            GameObject item_pref = _droping_items[Random.Range(0, _droping_items.Length)];
+            GameObject item = CreateDropedItem(item_pref);
+        }
 
-        return item;
+        private GameObject CreateDropedItem(GameObject item_pref)
+        {
+            GameObject item = Instantiate(item_pref) as GameObject;
+            item.transform.position = Enemy.Transform.position;
+
+            return item;
+        }
     }
 }
