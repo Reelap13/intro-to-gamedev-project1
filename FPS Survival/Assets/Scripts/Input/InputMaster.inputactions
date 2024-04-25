@@ -227,7 +227,18 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "c2f7f68d-06a4-423d-8bce-1feec46fe669",
+                    "id": "319f0fe3-f6e2-455b-b028-bc36af217785",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98917fb6-f0ab-4d45-afb1-3262762d3c22",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -235,15 +246,180 @@
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Hand",
+            "id": "a0840bf7-16eb-4356-8403-2eb27e033641",
+            "actions": [
+                {
+                    "name": "PickUpWeapon",
+                    "type": "Button",
+                    "id": "ca56cf49-e297-468b-ba66-c296d1a188b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "DropWeapon",
+                    "type": "Button",
+                    "id": "9f937a60-eec1-4f29-8111-de4f2508eab9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slot1",
+                    "type": "Button",
+                    "id": "a96b9c47-aaa4-4cde-b19d-283563c17ae3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slot2",
+                    "type": "Button",
+                    "id": "f696ee4e-79b6-431d-8e82-a9d6a3c250e3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slot3",
+                    "type": "Button",
+                    "id": "226e5b6a-00c0-43c6-8d2b-973868de4b23",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slot4",
+                    "type": "Button",
+                    "id": "39ba8bdf-b705-4361-9454-03f2dd7a0029",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "319f0fe3-f6e2-455b-b028-bc36af217785",
-                    "path": "<Keyboard>/r",
+                    "id": "404b5c5f-1a2a-4462-bca4-96f6a136b743",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reload",
+                    "action": "PickUpWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "554c5195-ba11-4144-b7e5-e63b34586a91",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "974f442f-9b56-429e-841a-79d93f225e3e",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slot1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3609a351-b0d7-4a6e-9195-3f3113ef0890",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slot2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68b9a828-0441-455a-974d-764cbe76f72c",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slot3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "506fada1-d9f9-4fb5-9f29-c879ec046c98",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slot4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Inventory",
+            "id": "db57d6c5-af84-474f-bb97-c74348b4a601",
+            "actions": [
+                {
+                    "name": "OpenCloseInventory",
+                    "type": "Button",
+                    "id": "58ceb78c-4783-43bd-9c8c-12f6f7479957",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenCloseCraftingMenu",
+                    "type": "Button",
+                    "id": "014e2564-09c1-4a7f-a41b-592388aa16cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f2e71621-4c58-4ceb-9652-ee162eb93d7e",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenCloseInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3ce5360-f5d9-4692-8f67-1768cd974f82",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenCloseCraftingMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

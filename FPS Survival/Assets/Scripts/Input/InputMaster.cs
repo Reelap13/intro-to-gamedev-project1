@@ -249,7 +249,18 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c2f7f68d-06a4-423d-8bce-1feec46fe669"",
+                    ""id"": ""319f0fe3-f6e2-455b-b028-bc36af217785"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98917fb6-f0ab-4d45-afb1-3262762d3c22"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -257,15 +268,180 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Hand"",
+            ""id"": ""a0840bf7-16eb-4356-8403-2eb27e033641"",
+            ""actions"": [
+                {
+                    ""name"": ""PickUpWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca56cf49-e297-468b-ba66-c296d1a188b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""DropWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f937a60-eec1-4f29-8111-de4f2508eab9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""a96b9c47-aaa4-4cde-b19d-283563c17ae3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""f696ee4e-79b6-431d-8e82-a9d6a3c250e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot3"",
+                    ""type"": ""Button"",
+                    ""id"": ""226e5b6a-00c0-43c6-8d2b-973868de4b23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot4"",
+                    ""type"": ""Button"",
+                    ""id"": ""39ba8bdf-b705-4361-9454-03f2dd7a0029"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""319f0fe3-f6e2-455b-b028-bc36af217785"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""id"": ""404b5c5f-1a2a-4462-bca4-96f6a136b743"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Reload"",
+                    ""action"": ""PickUpWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""554c5195-ba11-4144-b7e5-e63b34586a91"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""974f442f-9b56-429e-841a-79d93f225e3e"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3609a351-b0d7-4a6e-9195-3f3113ef0890"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68b9a828-0441-455a-974d-764cbe76f72c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""506fada1-d9f9-4fb5-9f29-c879ec046c98"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""db57d6c5-af84-474f-bb97-c74348b4a601"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenCloseInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""58ceb78c-4783-43bd-9c8c-12f6f7479957"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenCloseCraftingMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""014e2564-09c1-4a7f-a41b-592388aa16cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f2e71621-4c58-4ceb-9652-ee162eb93d7e"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenCloseInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3ce5360-f5d9-4692-8f67-1768cd974f82"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenCloseCraftingMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -289,6 +465,18 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
         m_Attack_Fire = m_Attack.FindAction("Fire", throwIfNotFound: true);
         m_Attack_Reload = m_Attack.FindAction("Reload", throwIfNotFound: true);
+        // Hand
+        m_Hand = asset.FindActionMap("Hand", throwIfNotFound: true);
+        m_Hand_PickUpWeapon = m_Hand.FindAction("PickUpWeapon", throwIfNotFound: true);
+        m_Hand_DropWeapon = m_Hand.FindAction("DropWeapon", throwIfNotFound: true);
+        m_Hand_Slot1 = m_Hand.FindAction("Slot1", throwIfNotFound: true);
+        m_Hand_Slot2 = m_Hand.FindAction("Slot2", throwIfNotFound: true);
+        m_Hand_Slot3 = m_Hand.FindAction("Slot3", throwIfNotFound: true);
+        m_Hand_Slot4 = m_Hand.FindAction("Slot4", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_OpenCloseInventory = m_Inventory.FindAction("OpenCloseInventory", throwIfNotFound: true);
+        m_Inventory_OpenCloseCraftingMenu = m_Inventory.FindAction("OpenCloseCraftingMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -532,6 +720,146 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         }
     }
     public AttackActions @Attack => new AttackActions(this);
+
+    // Hand
+    private readonly InputActionMap m_Hand;
+    private List<IHandActions> m_HandActionsCallbackInterfaces = new List<IHandActions>();
+    private readonly InputAction m_Hand_PickUpWeapon;
+    private readonly InputAction m_Hand_DropWeapon;
+    private readonly InputAction m_Hand_Slot1;
+    private readonly InputAction m_Hand_Slot2;
+    private readonly InputAction m_Hand_Slot3;
+    private readonly InputAction m_Hand_Slot4;
+    public struct HandActions
+    {
+        private @InputMaster m_Wrapper;
+        public HandActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PickUpWeapon => m_Wrapper.m_Hand_PickUpWeapon;
+        public InputAction @DropWeapon => m_Wrapper.m_Hand_DropWeapon;
+        public InputAction @Slot1 => m_Wrapper.m_Hand_Slot1;
+        public InputAction @Slot2 => m_Wrapper.m_Hand_Slot2;
+        public InputAction @Slot3 => m_Wrapper.m_Hand_Slot3;
+        public InputAction @Slot4 => m_Wrapper.m_Hand_Slot4;
+        public InputActionMap Get() { return m_Wrapper.m_Hand; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HandActions set) { return set.Get(); }
+        public void AddCallbacks(IHandActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HandActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HandActionsCallbackInterfaces.Add(instance);
+            @PickUpWeapon.started += instance.OnPickUpWeapon;
+            @PickUpWeapon.performed += instance.OnPickUpWeapon;
+            @PickUpWeapon.canceled += instance.OnPickUpWeapon;
+            @DropWeapon.started += instance.OnDropWeapon;
+            @DropWeapon.performed += instance.OnDropWeapon;
+            @DropWeapon.canceled += instance.OnDropWeapon;
+            @Slot1.started += instance.OnSlot1;
+            @Slot1.performed += instance.OnSlot1;
+            @Slot1.canceled += instance.OnSlot1;
+            @Slot2.started += instance.OnSlot2;
+            @Slot2.performed += instance.OnSlot2;
+            @Slot2.canceled += instance.OnSlot2;
+            @Slot3.started += instance.OnSlot3;
+            @Slot3.performed += instance.OnSlot3;
+            @Slot3.canceled += instance.OnSlot3;
+            @Slot4.started += instance.OnSlot4;
+            @Slot4.performed += instance.OnSlot4;
+            @Slot4.canceled += instance.OnSlot4;
+        }
+
+        private void UnregisterCallbacks(IHandActions instance)
+        {
+            @PickUpWeapon.started -= instance.OnPickUpWeapon;
+            @PickUpWeapon.performed -= instance.OnPickUpWeapon;
+            @PickUpWeapon.canceled -= instance.OnPickUpWeapon;
+            @DropWeapon.started -= instance.OnDropWeapon;
+            @DropWeapon.performed -= instance.OnDropWeapon;
+            @DropWeapon.canceled -= instance.OnDropWeapon;
+            @Slot1.started -= instance.OnSlot1;
+            @Slot1.performed -= instance.OnSlot1;
+            @Slot1.canceled -= instance.OnSlot1;
+            @Slot2.started -= instance.OnSlot2;
+            @Slot2.performed -= instance.OnSlot2;
+            @Slot2.canceled -= instance.OnSlot2;
+            @Slot3.started -= instance.OnSlot3;
+            @Slot3.performed -= instance.OnSlot3;
+            @Slot3.canceled -= instance.OnSlot3;
+            @Slot4.started -= instance.OnSlot4;
+            @Slot4.performed -= instance.OnSlot4;
+            @Slot4.canceled -= instance.OnSlot4;
+        }
+
+        public void RemoveCallbacks(IHandActions instance)
+        {
+            if (m_Wrapper.m_HandActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHandActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HandActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HandActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HandActions @Hand => new HandActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+    private readonly InputAction m_Inventory_OpenCloseInventory;
+    private readonly InputAction m_Inventory_OpenCloseCraftingMenu;
+    public struct InventoryActions
+    {
+        private @InputMaster m_Wrapper;
+        public InventoryActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenCloseInventory => m_Wrapper.m_Inventory_OpenCloseInventory;
+        public InputAction @OpenCloseCraftingMenu => m_Wrapper.m_Inventory_OpenCloseCraftingMenu;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void AddCallbacks(IInventoryActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+            @OpenCloseInventory.started += instance.OnOpenCloseInventory;
+            @OpenCloseInventory.performed += instance.OnOpenCloseInventory;
+            @OpenCloseInventory.canceled += instance.OnOpenCloseInventory;
+            @OpenCloseCraftingMenu.started += instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.performed += instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.canceled += instance.OnOpenCloseCraftingMenu;
+        }
+
+        private void UnregisterCallbacks(IInventoryActions instance)
+        {
+            @OpenCloseInventory.started -= instance.OnOpenCloseInventory;
+            @OpenCloseInventory.performed -= instance.OnOpenCloseInventory;
+            @OpenCloseInventory.canceled -= instance.OnOpenCloseInventory;
+            @OpenCloseCraftingMenu.started -= instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.performed -= instance.OnOpenCloseCraftingMenu;
+            @OpenCloseCraftingMenu.canceled -= instance.OnOpenCloseCraftingMenu;
+        }
+
+        public void RemoveCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     public interface IMovementActions
     {
         void OnForward(InputAction.CallbackContext context);
@@ -549,5 +877,19 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     {
         void OnFire(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+    }
+    public interface IHandActions
+    {
+        void OnPickUpWeapon(InputAction.CallbackContext context);
+        void OnDropWeapon(InputAction.CallbackContext context);
+        void OnSlot1(InputAction.CallbackContext context);
+        void OnSlot2(InputAction.CallbackContext context);
+        void OnSlot3(InputAction.CallbackContext context);
+        void OnSlot4(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnOpenCloseInventory(InputAction.CallbackContext context);
+        void OnOpenCloseCraftingMenu(InputAction.CallbackContext context);
     }
 }
