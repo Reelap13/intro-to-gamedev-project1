@@ -1,6 +1,7 @@
 using LevelGenerator.PerlinNoiseGenerator.Cities;
 using LevelGenerator.PerlinNoiseGenerator.Environment;
 using Unity.AI.Navigation;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -28,6 +29,7 @@ namespace LevelGenerator.PerlinNoiseGenerator
         
         public FloatArray2D BlockedMap { get; private set; }
 
+        [MenuItem("MyTools/Bake Lighting")]
         public override void GenerateLevel()
         {
            
@@ -53,6 +55,8 @@ namespace LevelGenerator.PerlinNoiseGenerator
             ApplyTextures(terrain_data);
 
             Surface.BuildNavMesh();
+            Lightmapping.giWorkflowMode = Lightmapping.GIWorkflowMode.OnDemand;
+            Lightmapping.Bake();
             Random.state = previous_state;
         }
 
