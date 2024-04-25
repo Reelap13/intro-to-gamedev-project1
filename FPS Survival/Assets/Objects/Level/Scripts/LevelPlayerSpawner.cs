@@ -21,7 +21,7 @@ public class LevelPlayerSpawner : MonoBehaviour
 
     public GameObject CreatePlayer()
     {
-        _player = SpawnPlayer(LevelController.LevelGenerator.Center + _spawning_offset);
+        _player = SpawnPlayer(LevelController.LevelGenerator.GetCenter() + _spawning_offset);
 
         return _player.gameObject;
     }
@@ -31,7 +31,6 @@ public class LevelPlayerSpawner : MonoBehaviour
     }
     private Player SpawnPlayer(Vector3 spawn_point)
     {
-        Debug.Log(spawn_point);
         GameObject player_obj = Instantiate(_player_pref) as GameObject;
         player_obj.transform.parent = _player_directory;
         player_obj.transform.position = spawn_point;
