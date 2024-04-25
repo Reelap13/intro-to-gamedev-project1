@@ -39,7 +39,7 @@ public class EnemyMovementAI : MonoBehaviour
 
     protected bool IsCanMove()
     {
-        return _target != null && _agent.enabled;
+        return _target != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh;
     }
     protected bool IsAccessToMove()
     {
@@ -62,5 +62,5 @@ public class EnemyMovementAI : MonoBehaviour
         IsBlocking = true;
     }
 
-    public float DistanceToTarget { get { return _agent.remainingDistance; } }
+    public float DistanceToTarget { get { return IsCanMove() ? _agent.remainingDistance : Mathf.Infinity; } }
 }
