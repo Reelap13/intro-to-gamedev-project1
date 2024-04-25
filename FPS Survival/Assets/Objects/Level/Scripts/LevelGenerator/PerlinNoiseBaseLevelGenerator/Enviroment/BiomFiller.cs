@@ -50,6 +50,7 @@ namespace LevelGenerator.PerlinNoiseGenerator.Environment
         private GameObject CreateObject(int x, int y, GameObject prefab)
         {
             GameObject obj = Instantiate(prefab) as GameObject;
+            obj.transform.parent = Generator.Generator.LevelDirectory;
             Vector3 position = new Vector3(
                 Random.Range(y - size / 2, y + size / 2),
                 0,

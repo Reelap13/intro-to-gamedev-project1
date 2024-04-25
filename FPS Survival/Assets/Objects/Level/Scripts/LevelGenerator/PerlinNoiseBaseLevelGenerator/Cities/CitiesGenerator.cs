@@ -12,13 +12,24 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
         public CitiesRoadsGenerator RoadsGenerator { get; private set; }
         [field: SerializeField]
         public CitiesRoadsCreator RoadsCreator { get; private set; }
+        [field: SerializeField]
+        public CitiesBuildingsGenerator BuildingsGenerator { get; private set; }
+        [field: SerializeField]
+        public CitiesBuildingsCreator BuildingsCreator { get; private set; }
 
         public FloatArray2D GenerateCities()
         {
             List<City> cities = PositionGenerator.GenerateCitiesLocations();
 
             var roads =RoadsGenerator.GenerateCitiesRoads(cities);
-            return RoadsCreator.CreateRoads(roads);
+            RoadsCreator.CreateRoads(roads);
+
+            var building = BuildingsGenerator.GenerateBuildings(cities, RoadsCreator.CitiesRoadsMap);
+            BuildingsCreator.CreateBuildings(BuildingsGenerator.Buildings);
+
+            RoadsCreator.CreateRoadsNearToBuilding(roads, building);
+
+            return RoadsCreator.CitiesRoadsMap;
         }
     }
 }

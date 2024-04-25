@@ -24,7 +24,6 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
             Dictionary<City, List<Road>> cities_roads = new Dictionary<City, List<Road>>();
             foreach (City city in cities)
             {
-                Debug.Log("Start drawing city 1 " + city.Points.Count);
                 cities_roads.Add(city, GenerateCityRoads(city));
                 //DrawCityRegion(city.Points);
             }
@@ -163,6 +162,14 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
             {
                 a.AdjacentRoads.Add(b);
                 b.AdjacentRoads.Add(a);
+            }
+
+            public void Unsubscribe()
+            {
+                foreach (Road road in AdjacentRoads)
+                    road.AdjacentRoads.Remove(this);
+
+                AdjacentRoads.Clear();
             }
         }
     }

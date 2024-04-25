@@ -43,11 +43,11 @@ namespace LevelGenerator.PerlinNoiseGenerator
 
             var cities_roads_map = Cities.GenerateCities();
             AddToBlockedMap(cities_roads_map);
+            AddToBlockedMap(Cities.BuildingsGenerator.BuildingMap);
             var road_map = Roads.GenerateRoadMap();
             AddToBlockedMap(road_map);
 
             Environment.GenerateEnvironment();
-
 
             ApplyTextures(terrain_data);
 
@@ -59,6 +59,7 @@ namespace LevelGenerator.PerlinNoiseGenerator
             FloatArray2D environment_map = Environment.Biom.BiomMap;
             FloatArray2D cities_roads_map = Cities.RoadsCreator.CitiesRoadsMap;
             FloatArray2D road_map = Roads.RoadMap;
+            //FloatArray2D ttt = FloatArray2D.GenerateGradientBiomMap(Cities.RoadsCreator.CitiesRoadsMap, 21, false);
 
             terrain_data.alphamapResolution = Width;
             float[,,] splatmap_data = new float[Width, Height, 3];
@@ -66,9 +67,12 @@ namespace LevelGenerator.PerlinNoiseGenerator
             {
                 for (int y = 0; y < Height; ++y)
                 {
-                    splatmap_data[x, y, 0] = environment_map[x, y];
+                    splatmap_data[x, y, 0] = environment_map[x, y]; //environment_map[x, y];
                     splatmap_data[x, y, 1] = cities_roads_map[x, y];
                     splatmap_data[x, y, 2] = road_map[x, y];
+                    /*splatmap_data[x, y, 0] = ttt[x, y]; //environment_map[x, y];
+                    splatmap_data[x, y, 1] = 0.01f < ttt[x, y] && ttt[x, y] < 0.1f ? 1 : 0; ; /// cities_roads_map[x, y];
+                    splatmap_data[x, y, 2] = 0;// road_map[x, y];*/
                 }
             }
 

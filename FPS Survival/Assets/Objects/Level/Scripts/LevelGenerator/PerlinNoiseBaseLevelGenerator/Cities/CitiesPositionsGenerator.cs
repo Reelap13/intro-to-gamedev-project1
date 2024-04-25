@@ -137,5 +137,13 @@ namespace LevelGenerator.PerlinNoiseGenerator.Cities
         {
             return (GetClosestPoint(point) - point).magnitude;
         }
+        public float DistanceToClosestPoint(Vector2Int point)
+        {
+            Vector3 parsed_point = new Vector3(point.y, 0, point.x);
+            Vector3 closest_point = GetClosestPoint(parsed_point);
+            closest_point.y = 0;
+
+            return Vector3.Distance(parsed_point, closest_point);
+        }
     }
 }

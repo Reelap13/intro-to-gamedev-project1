@@ -32,7 +32,8 @@ namespace LevelGenerator.PerlinNoiseGenerator.Environment
         }
         public FloatArray2D GenerateGradientBiomMap()
         {
-            GradientBiomMap = BiomMap.GenerateGradientBiomMap(Generator.Generator.BlockedMap, _gradient_range, true);
+            GradientBiomMap = FloatArray2D.GenerateGradientBiomMap(Generator.Generator.BlockedMap, _gradient_range, false);
+            GradientBiomMap.ReverseValues();
 
             return GradientBiomMap;
         }
