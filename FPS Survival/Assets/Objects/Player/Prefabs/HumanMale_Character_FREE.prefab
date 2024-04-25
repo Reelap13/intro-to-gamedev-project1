@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b72b734e9188f640bfefeb98c0d4ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupDistance: 2
+  pickupDistance: 3
 --- !u!82 &5015081159488222306
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1304,7 +1304,7 @@ AudioSource:
   m_GameObject: {fileID: 1782702501690864755}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5583977391899864474, guid: 4d763c6b5c86a4146b905155f528dd94, type: 2}
+  OutputAudioMixerGroup: {fileID: -1462365456369809700, guid: 4774f5a354f5c474aadb095e129e8fca, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4bd237682d8619646aea8e4b3b636cbb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2417,7 +2417,7 @@ Transform:
   m_GameObject: {fileID: 3525433991106217107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.21, y: 0.1, z: 0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

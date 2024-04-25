@@ -176,7 +176,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
   _droping_items:
-  - {fileID: 7374861514809142466, guid: a7ee3111802603f4ea454d9d456452ae, type: 3}
+  - {fileID: 1678884195978160, guid: cc0fd657b60ef8c499b057056b948f16, type: 3}
+  - {fileID: 1935905646489204, guid: 1435c36dca02dc841a30bfac19f79aa2, type: 3}
+  - {fileID: 1425489508226866, guid: 092df013ff76bd7428d419529e5e81cc, type: 3}
+  - {fileID: 1334420156022608, guid: 18b2841f7a99a5f42be7e5d161545f23, type: 3}
+  - {fileID: 1025607677209464, guid: 124fb29879dc61540b6b3c173eeafe39, type: 3}
+  - {fileID: 862737947144098769, guid: 9031307a0566f514d82b74e87bf6ec2c, type: 3}
+  - {fileID: 7582788520703744733, guid: 35216cf4c49977c4c8a5d807b4904a87, type: 3}
+  - {fileID: 1509360896119258245, guid: 26721a4aba79ada4794e859b55fe31be, type: 3}
+  - {fileID: 862737947144098769, guid: ffefa97608de3a742a7c00597cf52e67, type: 3}
 --- !u!1 &4672478599792368742
 GameObject:
   m_ObjectHideFlags: 0

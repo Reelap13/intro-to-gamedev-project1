@@ -11,7 +11,6 @@ namespace Enemies
 
         [SerializeField] private EnemyPrefab _enemy_pref;
         [SerializeField] private int _const_spawn_number = 5;
-        [SerializeField] private int _dynamic_spawn_number = 1;
         [SerializeField] private float _distance_from_player_to_spawn = 15;
 
         [SerializeField] private float _spawning_rate = 10f;
