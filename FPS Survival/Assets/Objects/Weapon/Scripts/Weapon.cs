@@ -28,7 +28,6 @@ public class Weapon : MonoBehaviour
         if (magazine.IsEmpty()) return;
         if (!enabled || !gameObject.activeSelf) return;
         attack.PerformAttack();
-        magazine.ReduceAmmo(1);
     }
 
     public void Reload()

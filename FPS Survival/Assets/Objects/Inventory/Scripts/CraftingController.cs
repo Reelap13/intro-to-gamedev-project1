@@ -17,7 +17,7 @@ public class CraftingController : MonoBehaviour
     public void Start()
     {
         InputManager.Instance.GetInputMaster().Inventory.OpenCloseCraftingMenu.started += _ => OpenCloseMenu();
-        _index = 0;
+        _index = 3;
         ShowRecipe(_index);
     }
 
@@ -41,6 +41,7 @@ public class CraftingController : MonoBehaviour
             craftingMenu.gameObject.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
             InputManager.Instance.GetInputMaster().Hand.Enable();
             InputManager.Instance.GetInputMaster().Attack.Enable();
         }
@@ -53,6 +54,7 @@ public class CraftingController : MonoBehaviour
             craftingMenu.gameObject.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
             InputManager.Instance.GetInputMaster().Hand.Disable();
             InputManager.Instance.GetInputMaster().Attack.Disable();
         }

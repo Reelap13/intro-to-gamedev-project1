@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf75026c97b9024183aaeb947bf08bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmoCapacity: 20
+  maxAmmoCapacity: 15
 --- !u!114 &260454992687852802
 MonoBehaviour:
   m_ObjectHideFlags: 0

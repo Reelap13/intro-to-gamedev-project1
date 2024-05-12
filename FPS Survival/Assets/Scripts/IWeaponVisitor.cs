@@ -1,6 +1,6 @@
 public interface IWeaponVisitor
 {
     public void Visit(EnemyMakingDamage visitor);
-    public void Visit(CollisionScanProjectile visitor);
+    public void Visit(Projectile visitor);
 
 }

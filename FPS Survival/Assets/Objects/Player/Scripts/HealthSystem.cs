@@ -46,7 +46,7 @@ public class HealthSystem : MonoBehaviour, IWeaponVisitor
         TakeDamage(Convert.ToInt32(visitor.Damage));
     }
 
-    public void Visit(CollisionScanProjectile visitor)
+    public void Visit(Projectile visitor)
     {
         return;
     }

@@ -47,7 +47,7 @@ public class CraftingRecipe : ScriptableObject
 
             foreach(GameObject item in Results)
             {
-                Instantiate(item, controller.transform.position, controller.transform.rotation, null);
+                Instantiate(item, controller.transform.position + 2 * Vector3.up, controller.transform.rotation, null);
             }
         }
     }

@@ -19661,9 +19661,9 @@ GameObject:
   - component: {fileID: 2317969703889859565}
   - component: {fileID: 5435963381054915516}
   - component: {fileID: 1996669869960325034}
-  - component: {fileID: 3770247996140808966}
   - component: {fileID: 1400589579509157615}
   - component: {fileID: -6403706361279351649}
+  - component: {fileID: -3212670433378846298}
   m_Layer: 0
   m_Name: BlueProjectile
   m_TagString: Untagged
@@ -19786,26 +19786,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &3770247996140808966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530848006099362002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9a891a788f9c744999bc39adb4e221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 35
-  type: 0
-  projectileRigidbody: {fileID: 1996669869960325034}
-  projectileLifetime: 2
-  spawnEffectOnDestroy: 1
-  effectOnDestroyPrefab: {fileID: 5142733230535142833}
-  effectOnDestroyLifetime: 2
-  explosion: {fileID: 8300000, guid: 7575f4814720b4b509b55764405171f1, type: 3}
 --- !u!96 &1400589579509157615
 TrailRenderer:
   serializedVersion: 3
@@ -20006,3 +19986,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3212670433378846298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530848006099362002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9a891a788f9c744999bc39adb4e221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
+  type: 0
+  projectileRigidbody: {fileID: 1996669869960325034}
+  projectileLifetime: 1
+  spawnEffectOnDestroy: 1
+  effectOnDestroyPrefab: {fileID: 5142733230535142833}
+  effectOnDestroyLifetime: 2
+  explosion: {fileID: 8300000, guid: 7575f4814720b4b509b55764405171f1, type: 3}
