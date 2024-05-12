@@ -58,7 +58,6 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
         Enemy.Movement.Block();
         Enemy.Collider.enabled = false;
         Enemy.Agent.enabled = false;
-        Debug.Log("Die");
 
         StartCoroutine(DestroyAnfterDieing());
     }
