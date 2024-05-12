@@ -8,6 +8,7 @@ namespace Enemies
     {
         [field: SerializeField]
         public LevelController LevelController { get; private set; }
+        [field: SerializeField] public EnemySpawner Spawner { get; private set; }
         [field: SerializeField] public Transform EnemyDirectory { get; private set; }
         
         public Transform Target { get; private set; }
@@ -20,9 +21,13 @@ namespace Enemies
         {
             IsSpawning = true;
         }
-        private void StopSpawningEnemies()
+        public void StopSpawningEnemies()
         {
             IsSpawning = false;
+        }
+        public void KillAllEnemies()
+        {
+            Spawner.KillAllEnemies();
         }
     }
 }

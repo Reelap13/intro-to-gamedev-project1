@@ -11,6 +11,8 @@ namespace Enemies
         [SerializeField] private GameObject[] _droping_items;
         private float[] probabilities;
 
+        private bool _is_access_to_drop = true;
+
         private void Awake()
         {
             Enemy.TakingDamage.OnDieing.AddListener((Enemy enemy) => DropItem());
@@ -18,6 +20,9 @@ namespace Enemies
 
         private void DropItem()
         {
+            if (!_is_access_to_drop)
+                return;
+
             if(Random.value < 0.3)
             {
                 // Convert the values to probabilities
@@ -48,6 +53,11 @@ namespace Enemies
             return item;
         }
 
+        public void BlockDropping()
+        {
+            _is_access_to_drop = false;
+        }
+        
         private int ChooseItem()
         {
             // Generate a random number between 0 and 1
