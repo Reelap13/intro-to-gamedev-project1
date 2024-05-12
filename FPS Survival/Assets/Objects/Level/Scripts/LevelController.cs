@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
     public LevelPlayerSpawner PlayerSpawner { get; private set; }
     [field: SerializeField]
     public Enemies.EnemySystem EnemySystem { get; private set; }
+    [field: SerializeField]
+    public GameController.Controller GameController { get; private set; }
 
     private void Start()
     {
@@ -23,6 +25,8 @@ public class LevelController : MonoBehaviour
         GameObject player = PlayerSpawner.CreatePlayer();
 
         EnemySystem.SetPreset(player.transform);
-        EnemySystem.StartSpawningEnemies();
+
+        GameController.Initialize();
+        GameController.StartGame();
     }
 }

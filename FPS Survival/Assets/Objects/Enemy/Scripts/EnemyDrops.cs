@@ -10,6 +10,8 @@ namespace Enemies
         public Enemy Enemy { get; private set; }
         [SerializeField] private GameObject[] _droping_items;
 
+        private bool _is_access_to_drop = true;
+
         private void Awake()
         {
             Enemy.TakingDamage.OnDieing.AddListener((Enemy enemy) => DropItem());
@@ -17,6 +19,9 @@ namespace Enemies
 
         private void DropItem()
         {
+            if (!_is_access_to_drop)
+                return;
+
             GameObject item_pref = _droping_items[Random.Range(0, _droping_items.Length)];
             GameObject item = CreateDropedItem(item_pref);
         }
@@ -27,6 +32,11 @@ namespace Enemies
             item.transform.position = Enemy.Transform.position;
 
             return item;
+        }
+
+        public void BlockDropping()
+        {
+            _is_access_to_drop = false;
         }
     }
 }

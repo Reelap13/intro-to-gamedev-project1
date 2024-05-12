@@ -1,3 +1,4 @@
+using Enemies;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -27,6 +28,12 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
     public void Visit(CollisionScanProjectile visitor)
     {
         TakeDamage(visitor.Damage);
+    }
+    public void InstanceDie()
+    {
+        GetComponent<EnemyDrops>()?.BlockDropping();
+
+        Die();
     }
 
     private void TakeDamage(float damage)

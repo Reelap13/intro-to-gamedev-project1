@@ -75,6 +75,16 @@ namespace Enemies
             return EnemySystem.LevelController.LevelGenerator.GetFreePoint(position);
         }
 
+        public void KillAllEnemies()
+        {
+            HashSet<Enemy> alive_enemies = new HashSet<Enemy>();
+            foreach (var enemy in _enemies)
+                alive_enemies.Add(enemy);
+
+            foreach (var enemy in alive_enemies)
+                enemy.TakingDamage.InstanceDie();
+        }
+
         private void RegisterEnemy(Enemy enemy)
         {
             _enemies.Add(enemy);
