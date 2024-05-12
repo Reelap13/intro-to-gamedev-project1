@@ -40,12 +40,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2923507887135159364}
-  - component: {fileID: -5753961721552971005}
   - component: {fileID: -8618017228822598889}
   - component: {fileID: -3548586969564771311}
   - component: {fileID: -6227976572228560202}
   - component: {fileID: 980466906339903696}
   - component: {fileID: 4964336332697371823}
+  - component: {fileID: -6931883148939064504}
   m_Layer: 7
   m_Name: Weapon 7
   m_TagString: Untagged
@@ -70,22 +70,6 @@ Transform:
   - {fileID: 7127060222024349323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5753961721552971005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8574801580719570259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb11f301179cd1418303613f3c912bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchPoint: {fileID: 7127060222024349323}
-  projectilePrefab: {fileID: 3770247996140808966, guid: f908985bab8e9bc439adf47eb5b482f6, type: 3}
-  forceMode: 1
-  force: 10
 --- !u!114 &-8618017228822598889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf75026c97b9024183aaeb947bf08bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmoCapacity: 20
+  maxAmmoCapacity: 10
 --- !u!114 &-3548586969564771311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +157,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.25, z: 0.06}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6931883148939064504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574801580719570259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb11f301179cd1418303613f3c912bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchPoint: {fileID: 7127060222024349323}
+  projectilePrefab: {fileID: -3212670433378846298, guid: f908985bab8e9bc439adf47eb5b482f6, type: 3}
+  forceMode: 1
+  force: 10
 --- !u!1001 &1810978493888713000
 PrefabInstance:
   m_ObjectHideFlags: 0

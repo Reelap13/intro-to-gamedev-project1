@@ -19798,7 +19798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9a891a788f9c744999bc39adb4e221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 35
+  damage: 10
   type: 0
   projectileRigidbody: {fileID: 1996669869960325034}
   projectileLifetime: 2

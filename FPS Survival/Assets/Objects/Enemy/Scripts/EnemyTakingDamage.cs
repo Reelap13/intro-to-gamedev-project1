@@ -24,7 +24,7 @@ public class EnemyTakingDamage : MonoBehaviour, IWeaponVisitor
     {
         return;
     }
-    public void Visit(CollisionScanProjectile visitor)
+    public void Visit(Projectile visitor)
     {
         TakeDamage(visitor.Damage);
     }

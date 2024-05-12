@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917429708196771573}
-  - component: {fileID: -1225906431264716041}
   - component: {fileID: -8096813261642858406}
   - component: {fileID: -762215010393947813}
   - component: {fileID: 6450173858481594538}
   - component: {fileID: 4933521033313906035}
   - component: {fileID: 7395504508724033905}
+  - component: {fileID: -2674640078539972190}
   m_Layer: 7
   m_Name: Weapon 2
   m_TagString: Untagged
@@ -39,22 +39,6 @@ Transform:
   - {fileID: 6382302363682476390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1225906431264716041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697296483357883055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb11f301179cd1418303613f3c912bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchPoint: {fileID: 6382302363682476390}
-  projectilePrefab: {fileID: 3770247996140808966, guid: 19636047b288f3146ab0841da0ec0dee, type: 3}
-  forceMode: 1
-  force: 10
 --- !u!114 &-8096813261642858406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf75026c97b9024183aaeb947bf08bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmoCapacity: 20
+  maxAmmoCapacity: 25
 --- !u!114 &-762215010393947813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +126,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2674640078539972190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697296483357883055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce8d2efce63f0f45aa7b92a5878c66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchPoint: {fileID: 6382302363682476390}
+  projectilePrefab: {fileID: 3812781869801964612, guid: 19636047b288f3146ab0841da0ec0dee, type: 3}
+  forceMode: 1
+  force: 10
+  coolDown: 0.5
 --- !u!1 &7052933296178712965
 GameObject:
   m_ObjectHideFlags: 0

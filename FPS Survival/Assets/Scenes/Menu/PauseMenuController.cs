@@ -34,6 +34,8 @@ public class PauseMenuController : MonoBehaviour
     }
     public void CameBackToMenu()
     {
+        CloseMenu();
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(0);
     }
 }
