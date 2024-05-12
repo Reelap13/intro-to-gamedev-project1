@@ -5,17 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameEndedMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _end_game_menu;
+    [SerializeField] private GameObject _lose_menu;
 
     private void Awake()
     {
-        _menu.SetActive(false);
+        _end_game_menu.SetActive(false);
+        _lose_menu.SetActive(false);
     }
     public void ShowEndedGameMenu()
     {
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
-        _menu.SetActive(true);
+        _end_game_menu.SetActive(true);
+    }
+    public void ShowLoseMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f;
+        _lose_menu.SetActive(true);
     }
 
     public void ComeBackToMainMenu()
@@ -27,6 +35,11 @@ public class GameEndedMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
-        _menu.SetActive(false);
+        _end_game_menu.SetActive(false);
+    }
+
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }

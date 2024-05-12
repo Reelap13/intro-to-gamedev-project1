@@ -22,11 +22,11 @@ public class LevelController : MonoBehaviour
     {
         LevelGenerator.GenerateLevel();
 
-        GameObject player = PlayerSpawner.CreatePlayer();
+        Player player = PlayerSpawner.CreatePlayer();
 
         EnemySystem.SetPreset(player.transform);
 
-        GameController.Initialize();
+        GameController.Initialize(player);
         GameController.StartGame();
     }
 }

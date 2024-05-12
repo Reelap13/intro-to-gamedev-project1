@@ -74,7 +74,6 @@ namespace GameController
         {
 
             Vector3 sun_rotation = new Vector3(_time * 360 / DAY_DURATION, 0, 0) + _sun_offset;
-            Debug.Log(sun_rotation);
             _sun.transform.eulerAngles = sun_rotation;
             //_sun.transform.rotation = Quaternion.Euler(sun_rotation);
         }

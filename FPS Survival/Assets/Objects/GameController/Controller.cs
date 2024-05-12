@@ -18,13 +18,15 @@ namespace GameController
         [SerializeField] private float _start_night_time = 21 * 60;
         [SerializeField] private GameEndedMenu _menu;
 
-        public void Initialize()
+        public void Initialize(Player player)
         {
             TimeController.Initialize();
-            TimeController.OnEndingDay.AddListener(EndGame);
+            TimeController.OnEndingDay.AddListener(ShowEndGameMenu);
 
             TimeController.AddEvent(new DayEvent(_start_day_time, StopSpawningEnemies));
             TimeController.AddEvent(new DayEvent(_start_night_time, StartSpawningEnemies));
+
+            player.OnPlayerDieing.AddListener(ShowLoseMenu);
         }
 
         public void StartGame()
@@ -43,12 +45,17 @@ namespace GameController
             LevelController.EnemySystem.StopSpawningEnemies();
             LevelController.EnemySystem.KillAllEnemies();
         }
-        public void EndGame(int day)
+        public void ShowEndGameMenu(int day)
         {
             if (day != _game_duration)
                 return;
 
             _menu.ShowEndedGameMenu();
+        }
+
+        public void ShowLoseMenu()
+        {
+            _menu.ShowLoseMenu();
         }
     }
 }

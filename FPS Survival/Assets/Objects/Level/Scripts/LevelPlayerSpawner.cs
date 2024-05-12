@@ -19,13 +19,13 @@ public class LevelPlayerSpawner : MonoBehaviour
         _camera = Camera.main;
     }
 
-    public GameObject CreatePlayer()
+    public Player CreatePlayer()
     {
         Vector3 center = LevelController.LevelGenerator.GetCenter();
         Vector3 spawn_point = LevelController.LevelGenerator.GetFreePoint(center) + _spawning_offset;
         _player = SpawnPlayer(spawn_point);
 
-        return _player.gameObject;
+        return _player;
     }
     private void RespawnPlayer()
     {
