@@ -4,74 +4,63 @@ using UnityEngine;
 
 public class AStarAlgorithm
 {
-    public class Node : IComparable<Node>
+    public class Node
     {
-        public Vector3 position;
-        public float cost;
-        public float heuristic;
+        public Vector3Int position;
+        public int cost;
+        public int heuristic;
         public Node parent;
 
-        public Node(Vector3 position)
+        public Node(Vector3Int position)
         {
             this.position = position;
-            cost = 0.0f;
-            heuristic = 0.0f;
+            cost = 0;
+            heuristic = 0;
             parent = null;
         }
-
-        public int CompareTo(Node other)
-        {
-            if (other == null) return 1;
-
-            float f1 = cost + heuristic;
-            float f2 = other.cost + other.heuristic;
-
-            if (f1 > f2)
-                return 1;
-            else if (f1 < f2)
-                return -1;
-            else
-                return 0;
-        }
     }
-    public static float ComputeHeuristic(Node node, Node goal)
+    public static int ComputeHeuristic(Vector3Int node, Vector3Int goal)
     {
-        return Vector3.Distance(node.position, goal.position);
+        return Mathf.Max(Mathf.Abs(node.x - goal.x), Mathf.Abs(node.z - goal.z));
     }
 
-    public static List<Vector3> GetNeighbors(Vector3 currentPosition, float stepSize, LayerMask obstacleLayer)
+    public static List<Vector3Int> GetNeighbors(Vector3Int currentPosition, float stepSize, LayerMask obstacleLayer)
     {
-        List<Vector3> neighbors = new List<Vector3>();
+        List<Vector3Int> neighbors = new List<Vector3Int>();
 
         Vector3[] directions = {
             Vector3.forward,
             Vector3.back,
             Vector3.left,
             Vector3.right,
-            (Vector3.forward + Vector3.right).normalized,
-            (Vector3.forward + Vector3.left).normalized,
-            (Vector3.back + Vector3.right).normalized,
-            (Vector3.back + Vector3.left).normalized
+            (Vector3.forward + Vector3.left),
+            (Vector3.forward + Vector3.right),
+            (Vector3.back + Vector3.left),
+            (Vector3.back + Vector3.right)
         };
 
         foreach (Vector3 direction in directions)
         {
             Vector3 newPosition = currentPosition + direction * stepSize;
-            Vector3 rayDirection = direction.normalized;
+
+            Vector3 raycastStart = currentPosition;
+            Vector3 raycastEnd = newPosition;
+            Vector3 rayDirection = (raycastEnd - raycastStart).normalized;
 
             RaycastHit hit;
-            if (!Physics.Raycast(currentPosition, rayDirection, out hit, stepSize, obstacleLayer))
+
+            if (!Physics.Raycast(raycastStart, rayDirection, out hit, stepSize, obstacleLayer))
             {
-                neighbors.Add(newPosition);
+                neighbors.Add(new((int)newPosition.x, (int)newPosition.y, (int)newPosition.z));
             }
         }
 
         return neighbors;
     }
 
-    public static List<Vector3> ReconstructPathVector3(Node goalNode)
+    public static List<Vector3Int> ReconstructPathVector3(Node goalNode)
     {
-        List<Vector3> path = new List<Vector3>();
+        List<Vector3Int> path = new List<Vector3Int>();
         Node current = goalNode;
 
         while (current != null)
@@ -84,57 +73,101 @@ public class AStarAlgorithm
         return path;
     }
 
-    public static bool IsValid(int x, int y, int gridWidth, int gridHeight)
-    {
-        return (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight);
-    }
-
-    public static List<Vector3> AStarPathfinding(Vector3 startPosition, Vector3 goalPosition, float stepSize, LayerMask obstacleLayer)
+    public static List<Vector3Int> AStarPathfinding(Vector3Int startPosition, Vector3Int goalPosition, float stepSize, LayerMask obstacleLayer)
     {
         Node start = new Node(startPosition);
         Node goal = new Node(goalPosition);
 
-        SortedSet<Node> openSet = new SortedSet<Node>();
-        start.heuristic = ComputeHeuristic(start, goal);
+        List<Node> openSet = new List<Node>();
+        start.heuristic = ComputeHeuristic(start.position, goal.position);
         openSet.Add(start);
 
-        Dictionary<Vector3, float> visited = new Dictionary<Vector3, float>();
-        visited[startPosition] = 0.0f;
+        Dictionary<Vector3Int, int> visited = new Dictionary<Vector3Int, int>();
 
         while (openSet.Count > 0)
         {
-            Node current = openSet.Min;
+            if (visited.Count > 1000)
+            {
+                return null;
+            }
+
+
+            Node current = FindLowestFCostNode(openSet);
             openSet.Remove(current);
 
-            if (Vector3.Distance(current.position, goalPosition) < stepSize / 2)
+            if (current.position == goalPosition)
             {
                 return ReconstructPathVector3(current);
             }
 
             visited[current.position] = current.cost;
 
-            List<Vector3> neighbors = GetNeighbors(current.position, stepSize, obstacleLayer);
+            List<Vector3Int> neighbors = GetNeighbors(current.position, stepSize, obstacleLayer);
 
-            foreach (Vector3 neighborPos in neighbors)
+            foreach (Vector3Int neighborPos in neighbors)
             {
-                float newCost = current.cost + Vector3.Distance(current.position, neighborPos);
-
-                Node neighbor = new Node(neighborPos);
+                int newCost = current.cost + ComputeHeuristic(current.position, neighborPos);
 
                 bool neighborVisited = visited.ContainsKey(neighborPos);
-                bool newCostIsBetter = (!neighborVisited || newCost < visited[neighborPos]);
+                int visitedCost = neighborVisited ? visited[neighborPos] : int.MaxValue;
+                bool newCostIsBetter = (newCost < visitedCost);
 
-                if (!neighborVisited || newCostIsBetter)
+                if (newCostIsBetter || !neighborVisited)
                 {
-                    neighbor.cost = newCost;
-                    neighbor.heuristic = ComputeHeuristic(neighbor, goal);
-                    neighbor.parent = current;
-                    openSet.Add(neighbor);
-                    visited[neighborPos] = newCost;
+                    Node neighbor = new Node(neighborPos)
+                    {
+                        cost = newCost,
+                        heuristic = ComputeHeuristic(neighborPos, goal.position),
+                        parent = current
+                    };
+
+                    int existingIndex = FindNodeIndexInOpenSet(openSet, neighborPos);
+                    if (existingIndex == -1)
+                    {
+                        openSet.Add(neighbor);
+                    }
+                    else
+                    {
+                        if (newCost < openSet[existingIndex].cost)
+                        {
+                            openSet[existingIndex] = neighbor;
+                        }
+                    }
                 }
             }
         }
 
-        return new List<Vector3>();
+        return new List<Vector3Int>();
+    }
+
+    private static Node FindLowestFCostNode(List<Node> openSet)
+    {
+        if (openSet.Count == 0)
+        {
+            return null;
+        }
+
+        Node lowestCostNode = openSet[0];
+        for (int i = 1; i < openSet.Count; i++)
+        {
+            if (openSet[i].cost + openSet[i].heuristic < lowestCostNode.cost + lowestCostNode.heuristic)
+            {
+                lowestCostNode = openSet[i];
+            }
+        }
+
+        return lowestCostNode;
+    }
+
+    private static int FindNodeIndexInOpenSet(List<Node> openSet, Vector3Int position)
+    {
+        for (int i = 0; i < openSet.Count; i++)
+        {
+            if (openSet[i].position == position)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }

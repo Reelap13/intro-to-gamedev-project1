@@ -10,11 +10,14 @@ public class EnemyMovementAI : MonoBehaviour
     [SerializeField] private float _speed = 3.5f;
     [SerializeField] private float _angular_speed = 120f;
     [SerializeField] private float _accelertion = 8f;
+    [SerializeField] private LayerMask obstaclesLayer;
+    [SerializeField] private float distanceToPointThreshold = 0.1f;
 
     private NavMeshAgent _agent => Enemy.Agent;
     private Transform _transform => Enemy.Transform;
     private Transform _target => Enemy.Target;
     private Animator _animator => Enemy.Animator;
+    private List<Vector3Int> path;
 
     public bool IsBlocking;
 
@@ -25,16 +28,37 @@ public class EnemyMovementAI : MonoBehaviour
         _agent.acceleration = _accelertion;
 
         IsBlocking = false;
+
     }
 
     private void FixedUpdate()
     {
         //Debug.Log(IsAccessToMove() + " " + IsCanMove());
-        if (!IsAccessToMove() || !IsCanMove())
-            return;
+        //if (!IsAccessToMove() || !IsCanMove())
+        //    return;
 
-        _agent.destination = _target.position;
-        _animator.SetFloat("Speed", _agent.velocity.magnitude);
+        if(path == null)
+        {
+            path = AStarAlgorithm.AStarPathfinding(new((int)_transform.position.x, 12, (int)_transform.position.z),
+    new((int)_target.position.x, 12, (int)_target.position.z), 1.5f, obstaclesLayer);
+            return;
+        }
+
+        if (path.Count > 1)
+        {
+            Vector3 targetVector = path[1] - _transform.position;
+            targetVector.y = 0;
+            Move(targetVector.normalized);
+            float distance = Vector2.Distance(new(path[1].x, path[1].z), new(_transform.position.x, _transform.position.z));
+            if (distance < distanceToPointThreshold)
+            {
+                path = AStarAlgorithm.AStarPathfinding(new((int)_transform.position.x, 12, (int)_transform.position.z),
+    new((int)_target.position.x, 12, (int)_target.position.z), 1.5f, obstaclesLayer);
+            }
+        }
+
+        //_agent.destination = _target.position;
+        _animator.SetFloat("Speed", _speed);
     }
 
     protected bool IsCanMove()
@@ -60,6 +84,13 @@ public class EnemyMovementAI : MonoBehaviour
     public void Unblock()
     {
         IsBlocking = true;
+    }
+
+    public void Move(Vector3 targetVector)
+    {
+        _transform.rotation = Quaternion.LookRotation(new(targetVector.x, 0, targetVector.z));
+
+        _transform.position += _transform.forward * _speed * Time.deltaTime;
     }
 
     public float DistanceToTarget { get { return IsCanMove() ? _agent.remainingDistance : Mathf.Infinity; } }

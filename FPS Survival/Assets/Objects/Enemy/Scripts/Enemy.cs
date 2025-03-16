@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     [field: SerializeField]
     public Collider Collider { get; private set; }
     [field: SerializeField]
-    public Transform Transform { get; private set; }
+    public Transform Transform { get; set; }
     
     [field: SerializeField]
     public Transform Target { get; private set; }
@@ -31,4 +31,5 @@ public class Enemy : MonoBehaviour
         Target = target;
     }
     public bool IsAlive => TakingDamage.IsAlive;
+
 }

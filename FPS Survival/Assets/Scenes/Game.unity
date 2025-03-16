@@ -2758,6 +2758,18 @@ PrefabInstance:
       propertyPath: _spawning_rate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _const_spawn_number
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _spawning_enemies_number.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      propertyPath: _spawning_enemies_number.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2382027263981248887, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: m_AgentTypeID
       value: 0
