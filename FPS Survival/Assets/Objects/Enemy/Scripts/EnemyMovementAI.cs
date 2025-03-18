@@ -12,6 +12,7 @@ public class EnemyMovementAI : MonoBehaviour
     [SerializeField] private float _accelertion = 8f;
     [SerializeField] private LayerMask obstaclesLayer;
     [SerializeField] private float distanceToPointThreshold = 0.1f;
+    [SerializeField] private AStarAlgorithm aStar;
 
     private NavMeshAgent _agent => Enemy.Agent;
     private Transform _transform => Enemy.Transform;
@@ -29,6 +30,8 @@ public class EnemyMovementAI : MonoBehaviour
 
         IsBlocking = false;
 
+        aStar = FindObjectOfType<AStarAlgorithm>();
+
     }
 
     private void FixedUpdate()
@@ -39,8 +42,8 @@ public class EnemyMovementAI : MonoBehaviour
 
         if(path == null)
         {
-            path = AStarAlgorithm.AStarPathfinding(new((int)_transform.position.x, 12, (int)_transform.position.z),
-    new((int)_target.position.x, 12, (int)_target.position.z), 1.5f, obstaclesLayer);
+            path = aStar.AStarPathfinding(new((int)_transform.position.x, 0, (int)_transform.position.z),
+    new((int)_target.position.x, 0, (int)_target.position.z));
             return;
         }
 
@@ -52,8 +55,8 @@ public class EnemyMovementAI : MonoBehaviour
             float distance = Vector2.Distance(new(path[1].x, path[1].z), new(_transform.position.x, _transform.position.z));
             if (distance < distanceToPointThreshold)
             {
-                path = AStarAlgorithm.AStarPathfinding(new((int)_transform.position.x, 12, (int)_transform.position.z),
-    new((int)_target.position.x, 12, (int)_target.position.z), 1.5f, obstaclesLayer);
+                path = aStar.AStarPathfinding(new((int)_transform.position.x, 0, (int)_transform.position.z),
+        new((int)_target.position.x, 0, (int)_target.position.z));
             }
         }
 
@@ -90,7 +93,8 @@ public class EnemyMovementAI : MonoBehaviour
     {
         _transform.rotation = Quaternion.LookRotation(new(targetVector.x, 0, targetVector.z));
 
-        _transform.position += _transform.forward * _speed * Time.deltaTime;
+        GetComponentInParent<Rigidbody>().velocity = _transform.forward * _speed;
+
     }
 
     public float DistanceToTarget { get { return IsCanMove() ? _agent.remainingDistance : Mathf.Infinity; } }

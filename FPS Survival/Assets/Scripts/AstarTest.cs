@@ -6,14 +6,13 @@ public class AstarTest : MonoBehaviour
 {
     public Vector3Int startPosition;
     public Vector3Int goalPosition;
-    public float stepSize = 1;
-    public LayerMask obstacleLayer;
+    [SerializeField] private AStarAlgorithm aStar;
 
     public List<Vector3Int> path; // Store the path for visualization
 
     void Start()
     {
-        path = AStarAlgorithm.AStarPathfinding(startPosition, goalPosition, stepSize, obstacleLayer);
+        path = aStar.AStarPathfinding(startPosition, goalPosition);
 
         if (path != null && path.Count > 0)
         {
@@ -31,7 +30,7 @@ public class AstarTest : MonoBehaviour
     {
         if (path != null && path.Count > 1)
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.red;
             for (int i = 0; i < path.Count - 1; i++)
             {
                 Gizmos.DrawLine(path[i], path[i + 1]);

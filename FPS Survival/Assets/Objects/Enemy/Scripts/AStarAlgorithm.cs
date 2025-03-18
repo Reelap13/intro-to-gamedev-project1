@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using LevelGenerator.PerlinNoiseGenerator;
 
-public class AStarAlgorithm
+public class AStarAlgorithm: MonoBehaviour
 {
+    [SerializeField] private ObstaclesMap obstaclesMap;
     public class Node
     {
         public Vector3Int position;
@@ -19,46 +21,39 @@ public class AStarAlgorithm
             parent = null;
         }
     }
-    public static int ComputeHeuristic(Vector3Int node, Vector3Int goal)
+    public int ComputeHeuristic(Vector3Int node, Vector3Int goal)
     {
         return Mathf.Max(Mathf.Abs(node.x - goal.x), Mathf.Abs(node.z - goal.z));
     }
 
-    public static List<Vector3Int> GetNeighbors(Vector3Int currentPosition, float stepSize, LayerMask obstacleLayer)
+    private bool IsValidCell(int x, int z, int width, int height)
+    {
+        return x >= 0 && z >= 0 && x < width && z < height;
+    }
+
+    public List<Vector3Int> GetNeighbors(Vector3Int currentPosition)
     {
         List<Vector3Int> neighbors = new List<Vector3Int>();
 
-        Vector3[] directions = {
-            Vector3.forward,
-            Vector3.back,
-            Vector3.left,
-            Vector3.right,
-            (Vector3.forward + Vector3.left),
-            (Vector3.forward + Vector3.right),
-            (Vector3.back + Vector3.left),
-            (Vector3.back + Vector3.right)
-        };
-
-        foreach (Vector3 direction in directions)
+        for (int i = -1; i <= 1; i++)
         {
-            Vector3 newPosition = currentPosition + direction * stepSize;
-
-            Vector3 raycastStart = currentPosition;
-            Vector3 raycastEnd = newPosition;
-            Vector3 rayDirection = (raycastEnd - raycastStart).normalized;
-
-            RaycastHit hit;
-
-            if (!Physics.Raycast(raycastStart, rayDirection, out hit, stepSize, obstacleLayer))
+            for (int j = -1; j <= 1; j++)
             {
-                neighbors.Add(new((int)newPosition.x, (int)newPosition.y, (int)newPosition.z));
+                if (i == 0 && j == 0) continue;
+                int x = currentPosition.x + i;
+                int z = currentPosition.z + j;
+                if (IsValidCell(x, z, obstaclesMap.Generator.Width, obstaclesMap.Generator.Height) && !obstaclesMap.Obstacles[x, z])
+                {
+                    neighbors.Add(new(x, currentPosition.y, z));
+                }
+
             }
         }
 
         return neighbors;
     }
 
-    public static List<Vector3Int> ReconstructPathVector3(Node goalNode)
+    public List<Vector3Int> ReconstructPathVector3(Node goalNode)
     {
         List<Vector3Int> path = new List<Vector3Int>();
         Node current = goalNode;
@@ -73,7 +68,7 @@ public class AStarAlgorithm
         return path;
     }
 
-    public static List<Vector3Int> AStarPathfinding(Vector3Int startPosition, Vector3Int goalPosition, float stepSize, LayerMask obstacleLayer)
+    public List<Vector3Int> AStarPathfinding(Vector3Int startPosition, Vector3Int goalPosition)
     {
         Node start = new Node(startPosition);
         Node goal = new Node(goalPosition);
@@ -102,11 +97,11 @@ public class AStarAlgorithm
 
             visited[current.position] = current.cost;
 
-            List<Vector3Int> neighbors = GetNeighbors(current.position, stepSize, obstacleLayer);
+            List<Vector3Int> neighbors = GetNeighbors(current.position);
 
             foreach (Vector3Int neighborPos in neighbors)
             {
-                int newCost = current.cost + ComputeHeuristic(current.position, neighborPos);
+                int newCost = current.cost + 1;
 
                 bool neighborVisited = visited.ContainsKey(neighborPos);
                 int visitedCost = neighborVisited ? visited[neighborPos] : int.MaxValue;
@@ -140,7 +135,7 @@ public class AStarAlgorithm
         return new List<Vector3Int>();
     }
 
-    private static Node FindLowestFCostNode(List<Node> openSet)
+    private Node FindLowestFCostNode(List<Node> openSet)
     {
         if (openSet.Count == 0)
         {
@@ -159,7 +154,7 @@ public class AStarAlgorithm
         return lowestCostNode;
     }
 
-    private static int FindNodeIndexInOpenSet(List<Node> openSet, Vector3Int position)
+    private int FindNodeIndexInOpenSet(List<Node> openSet, Vector3Int position)
     {
         for (int i = 0; i < openSet.Count; i++)
         {

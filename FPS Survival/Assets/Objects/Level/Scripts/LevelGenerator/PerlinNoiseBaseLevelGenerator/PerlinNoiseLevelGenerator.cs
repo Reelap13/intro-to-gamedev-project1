@@ -17,6 +17,8 @@ namespace LevelGenerator.PerlinNoiseGenerator
         public Roads Roads { get; private set; }
         [field: SerializeField]
         public CitiesGenerator Cities { get; private set; }
+        [field: SerializeField]
+        public ObstaclesMap Obstacles { get; private set; }
 
 
         [field: SerializeField]
@@ -53,6 +55,8 @@ namespace LevelGenerator.PerlinNoiseGenerator
             Environment.GenerateEnvironment();
 
             ApplyTextures(terrain_data);
+
+            Obstacles.GenerateObstaclesMap(heights);
 
             Surface.BuildNavMesh();
             //Lightmapping.giWorkflowMode = Lightmapping.GIWorkflowMode.OnDemand;
