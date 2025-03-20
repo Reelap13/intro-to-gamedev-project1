@@ -41,7 +41,6 @@ namespace LevelGenerator.PerlinNoiseGenerator
                     if (Physics.OverlapBox(position, boxSize / 2, Quaternion.identity, obstaclesLayer).Length > 0)
                     {
                         obstaclesMap[i, j] = true;
-                        Debug.Log(i + " " + j);
                     }
                     Color pixelColor = obstaclesMap[i, j] ? Color.white : Color.black;
                     texture.SetPixel(i, j, pixelColor);

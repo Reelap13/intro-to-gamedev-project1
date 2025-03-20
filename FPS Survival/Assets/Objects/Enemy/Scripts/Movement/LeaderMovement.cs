@@ -41,8 +41,9 @@ public class LeaderMovement : EnemyMovementStateAbstr
 
     private void UpdatePath()
     {
-        Debug.Log(AStarAlgorithm.Instance == null);
-        _way = AStarAlgorithm.Instance.AStarPathfinding(Transform.position, Target.position).Select(v => (Vector3)v).ToList();
+        List<Vector3Int> way = AStarAlgorithm.Instance.AStarPathfinding(Transform.position, Target.position);
+        if (way != null)
+            _way = way.Select(v => (Vector3)v).ToList();
     }
 
     private void RemoveClosedPoint()

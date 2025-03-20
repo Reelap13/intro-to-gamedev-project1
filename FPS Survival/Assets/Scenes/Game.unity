@@ -1040,6 +1040,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 34}
   m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &834798298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 706947241368481917, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+  m_PrefabInstance: {fileID: 6953570548435124409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b0fbc3bde71974aa736979f6d028f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &916624488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,15 +2830,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _spawning_rate
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _spawning_enemies_number.x
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2361155782805196642, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: _spawning_enemies_number.y
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2382027263981248887, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       propertyPath: m_AgentTypeID
@@ -2969,6 +2980,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6387262224889013644, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6953570548435124417}
+    - targetCorrespondingSourceObject: {fileID: 6387262224889013644, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6953570548435124418}
     - targetCorrespondingSourceObject: {fileID: 4547781887000121180, guid: 84832aeddc369e343a53aa1bece9ba6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6953570548435124416}
@@ -3011,10 +3025,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawner: {fileID: 622130076}
-  neighborRadius: 5
+  neighborRadius: 30
   separationDistance: 2
-  fovAngle: 90
-  leaderMass: 100
+  fovAngle: 360
+  leaderMass: 44
 --- !u!114 &6953570548435124416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,6 +3062,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclesMap: {fileID: 6953570548435124416}
+--- !u!114 &6953570548435124418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953570548435124411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5cad9d01f8a26448177912cf531092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player_spawner: {fileID: 834798298}
+  _enemies_spawner: {fileID: 622130076}
+  _recheck_time: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

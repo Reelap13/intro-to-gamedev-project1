@@ -39,9 +39,13 @@ public class LeaderSystem : MonoBehaviour
                 }
             }
 
-            Leader.State = EnemyMovementState.CHASE;
-            Leader = closest_enemy;
-            Leader.State = EnemyMovementState.LEADER;
+            if (Leader != closest_enemy)
+            {
+                if (Leader != null)
+                    Leader.State = EnemyMovementState.CHASE;
+                Leader = closest_enemy;
+                Leader.State = EnemyMovementState.LEADER;
+            }
             yield return new WaitForSeconds(_recheck_time);
         }
     }

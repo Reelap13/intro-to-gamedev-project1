@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
+  _distance_from_leader_to_start_chasing: 30
+  _distance_from_leader_to_finish_chasing: 60
   _distance_to_attack: 3
 --- !u!114 &4359434152076628918
 MonoBehaviour:
@@ -198,6 +200,7 @@ GameObject:
   - component: {fileID: 8012809774354619920}
   - component: {fileID: 3936922532778070621}
   - component: {fileID: 8860740787923807869}
+  - component: {fileID: 8439899362286505947}
   - component: {fileID: 3258975069142282571}
   m_Layer: 0
   m_Name: Movement
@@ -234,11 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
-  _max_speed: 3
+  _max_speed: 4
   _angular_speed: 720
   _way_point_movement: {fileID: 3936922532778070621}
   _leader_movement: {fileID: 8860740787923807869}
-  _flocking_movement: {fileID: 3258975069142282571}
+  _roam_flocking_movement: {fileID: 8439899362286505947}
+  _chase_flocking_movement: {fileID: 8439899362286505947}
 --- !u!114 &3936922532778070621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,8 +272,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
+  <State>k__BackingField: 3
+  _speed: 8
+  _time_to_update: 0.3
+  _skipping_point_distance: 2
+--- !u!114 &8439899362286505947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672478599792368742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c4910e41834b74cbfd642fb470774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
   <State>k__BackingField: 2
-  _speed: 3.5
+  _speed: 8
+  _cohesion_coef: 1
+  _alignment_coef: 0.5
+  _separation_coef: 1
 --- !u!114 &3258975069142282571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
   <State>k__BackingField: 1
-  _speed: 6
+  _speed: 4
   _cohesion_coef: 1
   _alignment_coef: 1
   _separation_coef: 10

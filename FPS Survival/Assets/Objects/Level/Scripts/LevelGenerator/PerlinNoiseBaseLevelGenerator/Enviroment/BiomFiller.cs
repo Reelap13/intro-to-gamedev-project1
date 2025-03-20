@@ -25,7 +25,6 @@ namespace LevelGenerator.PerlinNoiseGenerator.Environment
                     ProcessPoint(x, y, biom_gradient[x, y]);
                 }
             }
-            Debug.Log(count + " " + (biom_gradient.Width * biom_gradient.Height - count));
             Random.state = previous_state;
         }
 

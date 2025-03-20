@@ -39,6 +39,8 @@ public class EnemyMovement : MonoBehaviour
 
         Rigidbody.MovePosition(Transform.position + _direction * Time.fixedDeltaTime);
         Transform.LookAt(transform.position + new Vector3(_direction.x, 0, _direction.z));
+
+        Animator.SetFloat("Speed", _direction.magnitude);
     }
 
     private void UpdateDirection()
@@ -66,6 +68,7 @@ public class EnemyMovement : MonoBehaviour
             );
 
         _direction = rotation * Vector3.forward;
+        _direction = _direction.normalized * direction.magnitude;
     }
 
     private Vector3 GetNewDirection()
@@ -86,8 +89,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetStartWayPoint(WayPoint start, WayPoint aim)
     {
-        State = EnemyMovementState.LEADER;
-        //State = EnemyMovementState.ROAM;
+        State = EnemyMovementState.ROAM;
         _way_point_movement.SetStartPoints(start, aim);
     }
 
