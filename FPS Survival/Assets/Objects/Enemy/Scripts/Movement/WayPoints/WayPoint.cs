@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    private List<WayPoint> _neighbors = new();
+    [SerializeField] private List<WayPoint> _neighbors = new();
 
     public void AddNeighbor(WayPoint neighbor)
     {
@@ -16,6 +16,8 @@ public class WayPoint : MonoBehaviour
     {
         if (previous_point == null) 
             return _neighbors[Random.Range(0, _neighbors.Count)];
+        if (_neighbors.Count == 1)
+            return _neighbors[0];
 
         List<WayPoint> temp = new(_neighbors);
         temp.Remove(previous_point);

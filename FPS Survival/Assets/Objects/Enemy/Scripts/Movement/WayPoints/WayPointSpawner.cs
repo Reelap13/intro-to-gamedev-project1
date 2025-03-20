@@ -7,6 +7,7 @@ public class WayPointSpawner : MonoBehaviour
 {
     [SerializeField] private EnemySpawner _spawner;
     [SerializeField] private WayPoint _point_prefab;
+    [SerializeField] private List<WayPoint> _way_points;
     [SerializeField] private Transform _directory;
 
     private List<WayPoint> _points = new();
@@ -20,16 +21,7 @@ public class WayPointSpawner : MonoBehaviour
     public void GeneratePoints(Terrain Terrain)
     {
         _terrain = Terrain;
-
-        _points.Add(CreateWayPoint(new(95, 0, 126)));
-        _points.Add(CreateWayPoint(new(54, 0, 170)));
-        _points.Add(CreateWayPoint(new(57, 0, 128)));
-        _points.Add(CreateWayPoint(new(31, 0, 94)));
-
-        ConnectWayPoints(_points[0], _points[1]);
-        ConnectWayPoints(_points[1], _points[2]);
-        ConnectWayPoints(_points[2], _points[3]);
-        ConnectWayPoints(_points[3], _points[0]);
+        _points = _way_points;
     }
 
     private void InitEnemyWayPoints(Enemy enemy)
