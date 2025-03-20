@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [field: SerializeField]
-    public EnemyMovementAI Movement { get; private set; }
+    public EnemyMovement Movement { get; private set; }
     [field: SerializeField]
     public EnemyMakingDamage MakingDamage { get; private set; }
     [field: SerializeField]
@@ -22,13 +22,19 @@ public class Enemy : MonoBehaviour
     public Collider Collider { get; private set; }
     [field: SerializeField]
     public Transform Transform { get; private set; }
-    
+    [field: SerializeField]
+    public Rigidbody Rigidbody { get; private set; }
+
     [field: SerializeField]
     public Transform Target { get; private set; }
-
     public void SetTarget(Transform target)
     {
         Target = target;
     }
+    public void SetWayPoint()
+    {
+
+    }
     public bool IsAlive => TakingDamage.IsAlive;
+    public bool IsHasTarget => Target != null;
 }

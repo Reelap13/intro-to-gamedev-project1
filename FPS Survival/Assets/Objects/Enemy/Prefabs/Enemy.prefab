@@ -48,7 +48,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503366581829201153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -88,7 +88,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &5716136169517086694
 MonoBehaviour:
@@ -102,13 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f93854434d5d24baa597500c32c745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Movement>k__BackingField: {fileID: 7450030303643188656}
+  <Movement>k__BackingField: {fileID: 8012809774354619920}
   <MakingDamage>k__BackingField: {fileID: 7148140242920203433}
   <TakingDamage>k__BackingField: {fileID: 4359434152076628918}
   <Agent>k__BackingField: {fileID: 4787809417462066534}
   <Animator>k__BackingField: {fileID: 8502169992368793245}
   <Collider>k__BackingField: {fileID: 2408143070769606287}
   <Transform>k__BackingField: {fileID: 374587530125755894}
+  <Rigidbody>k__BackingField: {fileID: 1054602166420319964}
   <Target>k__BackingField: {fileID: 0}
 --- !u!114 &5709300580489075448
 MonoBehaviour:
@@ -194,7 +195,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640561717975126336}
-  - component: {fileID: 7450030303643188656}
+  - component: {fileID: 8012809774354619920}
+  - component: {fileID: 3936922532778070621}
+  - component: {fileID: 8860740787923807869}
+  - component: {fileID: 3258975069142282571}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Enemy
@@ -217,7 +221,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 374587530125755894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7450030303643188656
+--- !u!114 &8012809774354619920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,14 +230,64 @@ MonoBehaviour:
   m_GameObject: {fileID: 4672478599792368742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61fe49a3842b875489db9fcaa5e6ea76, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d086c0b1a7819a4fab5fbd861e19337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Enemy>k__BackingField: {fileID: 5716136169517086694}
-  _speed: 5.5
-  _angular_speed: 120
-  _accelertion: 8
-  IsBlocking: 0
+  _max_speed: 3
+  _angular_speed: 720
+  _way_point_movement: {fileID: 3936922532778070621}
+  _leader_movement: {fileID: 8860740787923807869}
+  _flocking_movement: {fileID: 3258975069142282571}
+--- !u!114 &3936922532778070621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672478599792368742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa74eb641c4f964c87469a8c4affc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
+  <State>k__BackingField: 1
+  _speed: 4
+  _touching_distance: 2
+--- !u!114 &8860740787923807869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672478599792368742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bfa7cc5db77ef48beb7b460e4fbb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
+  <State>k__BackingField: 2
+  _speed: 3.5
+--- !u!114 &3258975069142282571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672478599792368742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c4910e41834b74cbfd642fb470774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnemyMovement>k__BackingField: {fileID: 8012809774354619920}
+  <State>k__BackingField: 1
+  _speed: 6
+  _cohesion_coef: 1
+  _alignment_coef: 1
+  _separation_coef: 10
 --- !u!1 &8177289766666222224
 GameObject:
   m_ObjectHideFlags: 0

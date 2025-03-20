@@ -54,6 +54,8 @@ namespace LevelGenerator.PerlinNoiseGenerator
 
             ApplyTextures(terrain_data);
 
+            ObstaclesMap.GenerateObstaclesMap(Terrain);
+            WayPointSpawner.GeneratePoints(Terrain);
             Surface.BuildNavMesh();
             //Lightmapping.giWorkflowMode = Lightmapping.GIWorkflowMode.OnDemand;
             //Lightmapping.Bake();

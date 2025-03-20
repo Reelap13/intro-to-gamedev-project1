@@ -29,7 +29,7 @@ public class EnemyMakingDamage : MonoBehaviour
     private IEnumerator StartAttack()
     {
         _is_ready_to_attack = false;
-        Enemy.Movement.LookToTarget();
+        Enemy.Transform.LookAt(Enemy.Target);
         Enemy.Animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(_cooldown);

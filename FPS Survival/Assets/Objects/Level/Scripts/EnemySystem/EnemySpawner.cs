@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {
+        public UnityEvent<Enemy> OnEnemySpawning = new();
+
         [field: SerializeField]
         public EnemySystem EnemySystem { get; private set; }
 
@@ -15,13 +18,15 @@ namespace Enemies
 
         [SerializeField] private float _spawning_rate = 10f;
         [SerializeField] private Vector2Int _spawning_enemies_number = new Vector2Int(3, 4);
+        [SerializeField] private bool _debug_mode = false;
 
         private HashSet<Enemy> _enemies = new HashSet<Enemy>();
         private float time = 0;
 
         private void Awake()
-        { 
-
+        {
+            if (_debug_mode)
+                time = _spawning_rate;
         }
 
         private void Update()
@@ -57,6 +62,7 @@ namespace Enemies
             enemy.TakingDamage.OnDieing.AddListener(UnregisterEnemy);
 
             RegisterEnemy(enemy);
+            OnEnemySpawning.Invoke(enemy);
         }
 
         private Vector3 GetPositionToSpawnEnemy()

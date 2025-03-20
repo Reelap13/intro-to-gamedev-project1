@@ -15,7 +15,7 @@ public class EnemyBehaviour : MonoBehaviour
             return;
 
         //Debug.Log($"{Enemy.Movement.DistanceToTarget} {_distance_to_attack}");
-        if (Enemy.Movement.DistanceToTarget < _distance_to_attack)
+        if (Enemy.IsHasTarget && Enemy.Movement.DistanceToTarget < _distance_to_attack)
             Enemy.MakingDamage.TryToAttack();
     }
 }

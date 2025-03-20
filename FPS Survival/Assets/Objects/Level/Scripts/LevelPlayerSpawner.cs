@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelPlayerSpawner : MonoBehaviour
 {
+    public UnityEvent<Player> OnPlayerSpawning = new();
+
     [field: SerializeField]
     public LevelController LevelController { get; private set; }
     [SerializeField] private GameObject _player_pref;
@@ -38,6 +38,7 @@ public class LevelPlayerSpawner : MonoBehaviour
         player_obj.transform.position = spawn_point;
         Player player = player_obj.GetComponent<Player>();
         SetCamera(player);
+        OnPlayerSpawning.Invoke(player);
 
         return player;
     }
